@@ -205,3 +205,10 @@ html, body {
 .cursor-img.grow {
 }
 
+
+@media (hover: none), (pointer: coarse) {
+  .cursor,
+  .cursor-bg {
+    display: none !important;
+  }
+}
