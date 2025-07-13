@@ -1,11 +1,23 @@
 //Hero photos scroll
 const slideTrack = document.querySelector('.slide-track');
 const slides = document.querySelectorAll('.slide');
+const slideCount = slides.length;
 let currentIndex = 0;
 
 function autoSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
+  currentIndex++;
+
+  slideTrack.style.transition = "transform 0.6s ease-in-out";
   slideTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  // If it's the cloned slide
+  if (currentIndex === slideCount - 1) {
+    setTimeout(() => {
+      slideTrack.style.transition = "none";
+      slideTrack.style.transform = "translateX(0)";
+      currentIndex = 0;
+    }, 600); // match transition duration
+  }
 }
 
 setInterval(autoSlide, 2000); // Change image every 2 seconds
@@ -13,7 +25,8 @@ setInterval(autoSlide, 2000); // Change image every 2 seconds
 // Toggle sticky class when scrolling past threshold
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("floatingNavbar");
-  if (window.scrollY > 100) {
+  const triggerPoint = window.innerHeight - 50; // after hero slider
+  if (window.scrollY > triggerPoint) {
     navbar.classList.add("sticky");
   } else {
     navbar.classList.remove("sticky");
