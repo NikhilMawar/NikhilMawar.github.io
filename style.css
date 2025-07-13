@@ -32,7 +32,7 @@ html, body {
 /* ===== Floating Navbar (Initially at Bottom) ===== */
 .floating-navbar {
   position: absolute;
-  bottom: 0;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(25, 25, 25, 0.9);
