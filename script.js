@@ -1,3 +1,15 @@
+//Hero photos scroll
+const slideTrack = document.querySelector('.slide-track');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  slideTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+setInterval(autoSlide, 2000); // Change image every 2 seconds
+
 // Toggle sticky class when scrolling past threshold
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("floatingNavbar");

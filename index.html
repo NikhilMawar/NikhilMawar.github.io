@@ -28,22 +28,33 @@
     <button>Test Button</button>
   </div> -->
 
-  <!-- Hero Section with Background Video -->
-  <section class="hero">
+    <!-- Hero Section with Background Video 
+   <section class="hero">
     <video autoplay muted loop class="bg-video">
       <source src="https://github.com/NikhilMawar/NikhilMawar.github.io/blob/main/media/hero-video.mp4" type="video/mp4">
       <source src="media/hero-video.mp4" type="video/mp4">
-    </video>
+    </video> 
+  -->
 
-    <!-- Floating Navbar (centered, pill-shaped) -->
+  <!-- Hero section with background photo scrolls-->
+    <div class="hero-slider">
+    <div class="slide-track">
+    <img src="images/slide1.jpg" class="slide" alt="Slide 1" />
+    <img src="images/slide2.jpg" class="slide" alt="Slide 2" />
+    <img src="images/slide3.jpg" class="slide" alt="Slide 3" />
+    <!-- Add more images if needed -->
+    </div>
+</div>
+
+  <!-- Floating Navbar (centered, pill-shaped) -->
     <div class="floating-navbar" id="floatingNavbar">
-      <img src="images/logo.svg" alt="Logo" class="logo" />
+    <img src="images/logo.svg" alt="Logo" class="logo" />
 
-      <ul class="nav-links">
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
+    <ul class="nav-links">
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
 
       <!-- Say Hi Button -->
       <button class="contact-btn" onclick="scrollToContact()">
