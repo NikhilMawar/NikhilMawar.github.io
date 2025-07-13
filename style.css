@@ -1,3 +1,4 @@
+/* ===== Reset and Global Styles ===== */
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +6,13 @@
 }
 
 html, body {
-  height: 100%;
   font-family: 'Inter', sans-serif;
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero Section with Fullscreen Video ===== */
 .hero {
   position: relative;
   height: 100vh;
@@ -29,77 +29,89 @@ html, body {
   z-index: -1;
 }
 
-/* ===== Navbar ===== */
-.navbar {
+/* ===== Floating Navbar (Initially at Bottom) ===== */
+.floating-navbar {
   position: absolute;
-  top: 20px;
-  width: 100%;
-  padding: 0 30px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 10px 25px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 24px;
+  z-index: 100;
+  transition: all 0.3s ease;
+  max-width: fit-content;
 }
 
-.logo {
-  height: 40px;
+/* ===== Sticky Behavior on Scroll ===== */
+.floating-navbar.sticky {
+  position: fixed;
+  top: 10px;
+  bottom: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.nav-links {
+/* ===== Logo ===== */
+.floating-navbar .logo {
+  height: 30px;
+}
+
+/* ===== Nav Links ===== */
+.floating-navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
-  align-items: center;
+  gap: 24px;
 }
 
-.nav-links a {
+.floating-navbar .nav-links a {
   color: white;
   text-decoration: none;
+  font-size: 0.95rem;
   font-weight: 500;
-  font-size: 1rem;
-  transition: opacity 0.3s;
 }
 
-.nav-links a:hover {
-  opacity: 0.7;
-}
-
+/* ===== "Say Hi!" Button States ===== */
 .contact-btn {
-  padding: 8px 16px;
   background-color: #fff;
   color: #000;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px;
+  padding: 8px 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.contact-btn .arrow {
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .contact-btn:hover {
-  background-color: #ddd;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
-/* ===== Hamburger (Mobile) ===== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
-  cursor: pointer;
-  z-index: 999;
-}
-
-.hamburger span {
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  border-radius: 5px;
+.contact-btn:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ===== Hero Text ===== */
 .hero-text {
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   width: 100%;
   text-align: center;
   padding: 0 20px;
@@ -150,30 +162,21 @@ html, body {
   }
 }
 
-/* ===== Responsive Styles ===== */
+/* ===== Responsive (Mobile) ===== */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 20px;
-    border-radius: 10px;
+  .floating-navbar {
     flex-direction: column;
-    gap: 20px;
-    display: none;
+    padding: 15px;
+    gap: 12px;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
+  .floating-navbar .nav-links {
+    flex-direction: column;
+    gap: 16px;
   }
 
   .contact-btn {
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
 }

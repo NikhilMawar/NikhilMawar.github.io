@@ -2,40 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikhil Mawar Portfolio</title>
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Jersey+25&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Background Video -->
   <section class="hero">
-    <!-- Background Video -->
     <video autoplay muted loop class="bg-video">
       <source src="media/hero-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- Floating Navbar (centered, pill-shaped) -->
+    <div class="floating-navbar" id="floatingNavbar">
       <img src="images/logo.svg" alt="Logo" class="logo" />
-      
-      <!-- Hamburger Menu -->
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
 
-      <!-- Navigation Links -->
       <ul class="nav-links">
         <li><a href="#journey">Journey</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
-        <li><button class="contact-btn" onclick="scrollToContact()">Say Hi 👋</button></li>
       </ul>
-    </nav>
+
+      <!-- Say Hi Button -->
+      <button class="contact-btn" onclick="scrollToContact()">
+        👋 <span>Say Hi!</span> <span class="arrow">→</span>
+      </button>
+    </div>
 
     <!-- Hero Text -->
     <div class="hero-text">
@@ -47,12 +46,13 @@
     </div>
   </section>
 
-  <!-- Placeholder Contact Section -->
+  <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <h2>Let’s Connect!</h2>
     <p>Email me at: <a href="mailto:nikhil@example.com">nikhil@example.com</a></p>
   </section>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
