@@ -15,3 +15,12 @@ function scrollToContact() {
     contact.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+//cursor
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+  const { clientX: x, clientY: y } = e;
+  cursor.style.top = `${y}px`;
+  cursor.style.left = `${x}px`;
+});
