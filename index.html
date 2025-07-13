@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hello World</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nikhil Mawar Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Hello, World! This is me Nikhil Mawar!
-  </h1>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Background Video -->
+    <video autoplay muted loop class="bg-video">
+      <source src="media/hero-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <img src="images/logo.svg" alt="Logo" class="logo" />
+      
+      <!-- Hamburger Menu -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><button class="contact-btn" onclick="scrollToContact()">Say Hi 👋</button></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1>Crafting Web Applications, Digital Interfaces and Branding</h1>
+      <p>
+        I create beautiful, functional, technology-forward UI designs across all brand surfaces. 
+        Currently, I am assisting <a href="#">Intract.io</a> in building Web3’s best questing platform.
+      </p>
+    </div>
+  </section>
+
+  <!-- Placeholder Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Let’s Connect!</h2>
+    <p>Email me at: <a href="mailto:nikhil@example.com">nikhil@example.com</a></p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
