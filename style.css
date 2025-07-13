@@ -10,6 +10,7 @@ html, body {
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
+  cursor: none;
 }
 
 /* ===== Hero Section with Fullscreen Video ===== */
@@ -188,8 +189,6 @@ html, body {
 /* ===== Cursor customized ===== */
 .cursor {
   position: fixed;
-  top: 0;
-  left: 0;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
@@ -197,25 +196,31 @@ html, body {
 
 /* Trailing highlight circle */
 .cursor-bg {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.15);
+  /*border: 2px solid rgba(255, 255, 255, 0.4);*/
   border-radius: 50%;
-  animation: pulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease-out;
+}
+
+/* grow on hover*/
+.cursor-img.grow {
+  transform: scale(1.8);
+  transition: transform 0.2s linear;
 }
 
 /* Photo in the middle */
 .cursor-img {
-  position: absolute;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
   animation: rotate 4s linear infinite;
-  /*left: 10px;
-  top: 10px;*/
 }
 
 /* Rotation animation */
