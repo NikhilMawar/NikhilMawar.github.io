@@ -378,11 +378,18 @@ a:hover .nav-anim::after {
 }
 
 /* === Tags === */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap on multiple lines */
+  gap: 8px 12px;   /* horizontal and vertical spacing between tags */
+}
+
 .project-tags span {
+  display: inline-block;
   padding: 6px 12px;
   border-radius: 8px;
-  margin-right: 8px;
-  margin-bottom: 30px;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
 
 /* === Hover Link Circle Arrow === */
