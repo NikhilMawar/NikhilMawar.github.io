@@ -529,7 +529,7 @@ a:hover .nav-anim::after {
 
 /* Grow effect when hovering over link/button 
 .cursor-img.grow {
-}
+} */
 
 
 @media (hover: none), (pointer: coarse) {

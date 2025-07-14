@@ -105,3 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
     navCollapse.classList.toggle("show");
   });
 });
+
+// disable cursor on mobile devices
+function disableCustomCursorOnTouch() {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    const cursor = document.querySelector('.cursor');
+    const cursorBg = document.querySelector('.cursor-bg');
+    if (cursor) cursor.style.display = 'none';
+    if (cursorBg) cursorBg.style.display = 'none';
+  }
+}
+disableCustomCursorOnTouch();
