@@ -94,3 +94,14 @@ function animateCursor() {
 }
 
 animateCursor();
+
+
+// burger menu fix
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById("burgerMenu");
+  const navCollapse = document.getElementById("navCollapse");
+
+  burger.addEventListener("click", () => {
+    navCollapse.classList.toggle("show");
+  });
+});

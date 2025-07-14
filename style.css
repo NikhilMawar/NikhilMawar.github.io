@@ -68,6 +68,111 @@ html, body {
   max-width: fit-content;
 }
 
+/*===== burger collapse =====*/
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.burger span {
+  width: 25px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+/* Collapsible menu */
+.nav-collapse {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .floating-navbar {
+    justify-content: space-between;
+    width: 100%;
+    left: 0;
+    transform: none;
+    padding: 10px 16px;
+  }
+
+  .nav-collapse {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #121212;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 16px;
+    display: none;
+    z-index: 100;
+    border-top: 1px solid #2f2f2f;
+  }
+
+  .nav-collapse.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-btn {
+    align-self: flex-start;
+  }
+}
+
+/*===== nav hover effect =====*/
+.nav-anim {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1em;
+  color: transparent; /* hides fallback text */
+}
+
+/* Pseudo-elements for animation */
+.nav-anim::before,
+.nav-anim::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: white; /* <-- Ensure the text is visible */
+  transition: transform 0.3s ease;
+}
+
+/* Initial position */
+.nav-anim::before {
+  top: 0;
+  transform: translateY(0%);
+}
+.nav-anim::after {
+  top: 100%;
+  transform: translateY(0%);
+}
+
+/* Hover animation */
+a:hover .nav-anim::before {
+  transform: translateY(-100%);
+}
+a:hover .nav-anim::after {
+  transform: translateY(-100%);
+}
+
 /* ===== Sticky Behavior on Scroll ===== */
 .floating-navbar.sticky {
   position: fixed;
@@ -145,7 +250,7 @@ html, body {
   font-family: "Jersey 10", sans-serif;
   max-width: 60vw;
   font-size: 80px;
-  margin: 10px auto;
+  margin: 0px auto;
   font-weight: 200;
   text-shadow: 0px 0px 10px #ffffff91;
 

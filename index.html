@@ -55,20 +55,26 @@
 
 
   <!-- Floating Navbar (centered, pill-shaped) -->
-    <div class="floating-navbar" id="floatingNavbar">
+  <div class="floating-navbar" id="floatingNavbar">
     <img src="images/logo.svg" alt="Logo" class="logo" />
 
-    <ul class="nav-links">
-      <li class="JetBrains14"><a href="#journey">Journey</a></li>
-      <li class="JetBrains14"><a href="#projects">Projects</a></li>
-      <li class="JetBrains14"><a href="#about">About</a></li>
-    </ul>
-
-      <!-- Say Hi Button -->
-      <button class="contact-btn JetBrains14" onclick="scrollToContact()">
-        👋 <span>Say Hi!</span> <span class="arrow">→</span>
-      </button>
+    <!-- Hamburger icon -->
+    <div class="burger" id="burgerMenu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <!-- Collapsible nav container -->
+    <div class="nav-collapse" id="navCollapse">
+      <ul class="nav-links">
+        <li class="JetBrains14"><a href="#journey"><span class="nav-anim" data-text="Journey">Journey</span></a></li>
+        <li class="JetBrains14"><a href="#projects"><span class="nav-anim" data-text="Projects">Projects</span></a></li>
+        <li class="JetBrains14"><a href="#about"><span class="nav-anim" data-text="About">About</span></a></li>
+      </ul>
+      <button class="contact-btn JetBrains14" onclick="scrollToContact()">👋 <span>Say Hi!</span> <span class="arrow">→</span></button>
+    </div>
+  </div>
 
 <main class="page-content">
     <!-- Hero Text -->
