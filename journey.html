@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journey | Nikhil Mawar</title>
+  <link rel="icon" href="images/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Jersey+10&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <!-- (same fonts as index.html) -->
+</head>
+<body>
+  <!-- Cursor -->
+  <div class="cursor-bg"></div>
+  <div class="cursor">
+    <img src="images/cursor.png" class="cursor-img" />
+  </div>
+
+  <!-- Navbar -->
+  <div class="floating-navbar" id="floatingNavbar">
+    <a href="index.html">
+    <img src="images/logo.svg" alt="Logo" class="logo" />
+    </a>
+    <div class="burger" id="burgerMenu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-collapse" id="navCollapse">
+      <ul class="nav-links">
+        <li class="JetBrains14"><a href="journey.html"><span class="nav-anim" data-text="Journey">Journey</span></a></li>
+        <li class="JetBrains14"><a href="index.html#projects"><span class="nav-anim" data-text="Projects">Projects</span></a></li>
+        <li class="JetBrains14"><a href="index.html#about"><span class="nav-anim" data-text="About">About</span></a></li>
+      </ul>
+      <button class="contact-btn JetBrains14" onclick="scrollToContact()">
+        <span class="pre-icon"><img src="icons/hello.svg"/></span>
+        <span class="btn-text">Say Hi!</span>
+        <span class="arrow-icon"><img src="icons/arrow.svg" /></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <section class="journey-section">
+      <section class="journey-hero">
+        <div class="hero-text">
+            <h1 class="hero-heading">Journey so far<span id="animatedExclamations"></span></h1>
+            <p class="JetBrains18 hero-description">
+            Since 2016, I have been involved in various projects that have honed my design expertise.
+            Beginning my professional journey as a graphic designer and lo-fi graffiti artist, I've gained
+            insight into crucial design principles like color, typography, hierarchy, balance, and
+            compositions, among others.
+            </p>
+
+            <img src="images/journey-hero.png" alt="Journey Hero" class="journey-hero-image" />
+        </div>
+    </section>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Same footer from index.html -->
+  </footer>
+
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>

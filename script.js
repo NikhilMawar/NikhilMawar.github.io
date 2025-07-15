@@ -25,7 +25,14 @@ setInterval(autoSlide, 2000); // Change image every 2 seconds
 // Toggle sticky class when scrolling past threshold
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("floatingNavbar");
-  const triggerPoint = window.innerHeight - 50; // after hero slider
+  const triggerPoint = window.innerHeight - 50;
+
+  // Always sticky for pages that are not index.html
+  if (window.location.pathname.includes("journey.html")) {
+    navbar.classList.add("sticky");
+    return;
+  }
+
   if (window.scrollY > triggerPoint) {
     navbar.classList.add("sticky");
   } else {
@@ -116,3 +123,20 @@ function disableCustomCursorOnTouch() {
   }
 }
 disableCustomCursorOnTouch();
+
+
+
+
+
+
+//======================== J O U R N E Y=====================
+const exclamations = document.getElementById("animatedExclamations");
+  let count = 0;
+  const max = 6;
+
+  function animateExclamations() {
+    count = (count + 1) % (max + 1); // Cycle from 0 to 6
+    exclamations.textContent = " !".repeat(count);
+  }
+
+  setInterval(animateExclamations, 600); // Change every 300ms

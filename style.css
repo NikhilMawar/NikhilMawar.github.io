@@ -59,7 +59,7 @@ html, body {
   background: rgba(12, 12, 12, 0.3);
   border: 1px solid rgba(47, 47, 47, 1.0);
   border-radius: 50px;
-  padding: 10px 25px;
+  padding: 10px 10px 10px 20px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -301,7 +301,7 @@ a:hover .nav-anim::after {
 
 /* ============================================================== Hero Text ============================================================== */
 .page-content{
-  margin-top: 40vh;
+  margin-top: 20vh;
 }
 
 .hero-text{
@@ -555,11 +555,12 @@ a:hover .nav-anim::after {
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 
   .about-photo img {
-    width: 200px;
+    width: 80vw;
+    height: 50vw;
     margin-bottom: 20px;
   }
 
@@ -569,64 +570,117 @@ a:hover .nav-anim::after {
 }
 
 
+/* ========================================FOOTER============================================*/
+.site-footer {
+  padding: 80px 40px;
+  background-color: #121212;
+  color: white;
+}
 
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.footer-left {
+  flex: 1;
+  min-width: 280px;
+}
 
+.footer-tagline {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
 
+.footer-credit {
+  opacity: 0.6;
+}
 
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 280px;
+}
 
+.explore-label {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
+.footer-links-grid {
+  display: flex;
+  gap: 80px;
+}
 
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
+/* Reuse nav-anim animation */
+.footer-links-col a {
+  font-size: 14px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1em;
+  color: transparent;
+  font-family: 'JetBrains Mono', monospace;
+}
 
+.footer-links-col .nav-anim::before,
+.footer-links-col .nav-anim::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: white;
+  transition: transform 0.3s ease;
+}
 
+.footer-links-col .nav-anim::before {
+  top: 0;
+  transform: translateY(0%);
+}
+.footer-links-col .nav-anim::after {
+  top: 100%;
+  transform: translateY(0%);
+}
 
+.footer-links-col a:hover .nav-anim::before {
+  transform: translateY(-100%);
+}
+.footer-links-col a:hover .nav-anim::after {
+  transform: translateY(-100%);
+}
 
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+  }
 
+  .footer-links-grid {
+    flex-direction: row;
+    gap: 40px;
+  }
 
+  .footer-right {
+    align-items: flex-start;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*cursor code*/
+/*=======================================cursor code==============================================*/
 .cursor {
   position: fixed;
   pointer-events: none;
@@ -670,4 +724,22 @@ a:hover .nav-anim::after {
   .cursor-bg {
     display: none !important;
   }
+}
+
+
+
+
+
+
+/*====================== J O U R N E Y ================================*/
+
+/*hero text*/
+.journey-hero-image {
+  width: 80vw;
+  max-width: 100%;
+  height: 70vh;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-top: 40px;
+  object-position: 0% 0%;
 }
