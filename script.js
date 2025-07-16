@@ -182,3 +182,20 @@ window.addEventListener("scroll", () => {
 
   fan.style.transform = `translateY(${translateY}px) rotate(${rotateDeg}deg)`;
 });
+
+
+
+
+//==========================================================C O N T A C T   P A G E ==================================================
+const greetings = document.querySelectorAll('.greeting-svg');
+let greetIndex = 0;
+
+function cycleGreetings() {
+  greetings.forEach((greet, i) => {
+    greet.classList.toggle('active', i === greetIndex);
+  });
+  greetIndex = (greetIndex + 1) % greetings.length;
+}
+
+setInterval(cycleGreetings, 800); // change every 0.8 seconds
+cycleGreetings(); // initial run

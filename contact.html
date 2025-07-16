@@ -10,6 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
+    <div class="cursor-bg"></div>
+    <div class="cursor">
+        <img src="images/cursor.png" class="cursor-img" />
+    </div>
 
   <!-- Navbar (Optional, same as index) -->
   <div class="floating-navbar" id="floatingNavbar">
@@ -37,6 +41,22 @@
     </div>
   </div>
 
+
+<section class="greeting-strip">
+    <div class="greeting-container">
+        <img src="images/greetings/hello.svg" class="greeting-svg" />
+        <img src="images/greetings/ola.svg" class="greeting-svg" />
+        <img src="images/greetings/bonjour.svg" class="greeting-svg" />
+        <img src="images/greetings/namaste.svg" class="greeting-svg" />
+        <img src="images/greetings/ciao.svg" class="greeting-svg" />
+        <img src="images/greetings/konnichiwa.svg" class="greeting-svg" />
+        <img src="images/greetings/hola.svg" class="greeting-svg" />
+        <img src="images/greetings/annyeong.svg" class="greeting-svg" />
+        <img src="images/greetings/privet.svg" class="greeting-svg" />
+        <img src="images/greetings/salaam.svg" class="greeting-svg" />
+    </div>
+</section>
+
   <!-- Contact Section -->
   <main class="contact-page">
     <section class="contact-container">
@@ -54,7 +74,33 @@
 
   <!-- Footer (Optional same as index.html) -->
   <footer>
-    <p>© 2025 Nikhil Mawar</p>
+    <!-- Same footer from index.html -->
+     <div class="footer-container">
+    <!-- Left Column -->
+    <div class="footer-left">
+      <p class="JetBrains18 footer-tagline">
+        Crafting Web applications, Digital interfaces and Branding
+      </p>
+      <p class="JetBrains14 footer-credit">
+        Created with ❤️ and lots of ☕ | ©NikhilMawar.Github.io 2025
+      </p>
+    </div>
+
+    <!-- Right Column -->
+    <div class="footer-right">
+      <div class="JetBrains14 explore-label">EXPLORE</div>
+      <div class="footer-links-grid">
+        <div class="footer-links-col">
+          <a href="journey.html"><span class="nav-anim" data-text="Journey">Journey</span></a>
+          <a href="#contact"><span class="nav-anim" data-text="Contact">Contact</span></a>
+        </div>
+        <div class="footer-links-col">
+          <a href="https://linkedin.com/in/nikhilmawar" target="_blank"><span class="nav-anim" data-text="Linkedin">Linkedin</span></a>
+          <a href="https://www.behance.net/nikhilmawar1" target="_blank"><span class="nav-anim" data-text="Behance">Behance</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
   </footer>
 
   <script src="script.js"></script>
