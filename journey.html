@@ -153,18 +153,18 @@
   </footer>
 
   <script src="script.js">
-    const greetings = document.querySelectorAll('.greeting-svg');
-    let greetIndex = 0;
+ //   const greetings = document.querySelectorAll('.greeting-svg');
+ //   let greetIndex = 0;
 
-    function cycleGreetings() {
-      greetings.forEach((greet, i) => {
-        greet.classList.toggle('active', i === greetIndex);
-      });
-      greetIndex = (greetIndex + 1) % greetings.length;
-    }
+//   function cycleGreetings() {
+//      greetings.forEach((greet, i) => {
+//        greet.classList.toggle('active', i === greetIndex);
+//      });
+//      greetIndex = (greetIndex + 1) % greetings.length;
+//    }
 
-    setInterval(cycleGreetings, 800); // change every 0.8 seconds
-    cycleGreetings(); // initial run
+//    setInterval(cycleGreetings, 800); // change every 0.8 seconds
+//    cycleGreetings(); // initial run
   </script>
 </body>
 </html>
