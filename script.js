@@ -146,26 +146,39 @@ const exclamations = document.getElementById("animatedExclamations");
 // Fan scroll animation
 const fan = document.querySelector(".fan-svg");
 const fanTrack = document.querySelector(".fan-track");
-const journeySection = document.querySelector(".journey-roles-section");
+const rolesLeft = document.querySelector(".roles-left");
+const rolesRight = document.querySelector(".roles-right");
+
+function syncFanHeight() {
+  if (window.innerWidth <= 768) {
+    const leftHeight = rolesLeft.offsetHeight;
+    rolesRight.style.height = `${leftHeight}px`;
+    fanTrack.style.height = `100%`;
+  } else {
+    rolesRight.style.height = null;
+    fanTrack.style.height = null;
+  }
+}
+
+window.addEventListener("load", syncFanHeight);
+window.addEventListener("resize", syncFanHeight);
 
 window.addEventListener("scroll", () => {
-  const sectionTop = journeySection.offsetTop;
-  const sectionHeight = journeySection.offsetHeight;
+  syncFanHeight();
+
+  const sectionTop = rolesLeft.offsetTop;
+  const sectionHeight = rolesLeft.offsetHeight;
   const fanHeight = fan.offsetHeight;
-  const trackHeight = fanTrack.offsetHeight;
+  const trackHeight = fanTrack.clientHeight;
 
-  const scrollY = window.scrollY + window.innerHeight / 2;
+  // Use window.scrollY for vertical scroll position
+  let scrollProgress = (window.scrollY + window.innerHeight - sectionTop) / (sectionHeight + window.innerHeight);
+  scrollProgress = Math.min(Math.max(scrollProgress, 0), 1);
 
-  // scrollProgress between 0 and 1
-  const scrollProgress = Math.min(Math.max((scrollY - sectionTop) / sectionHeight, 0), 1);
-
-  // Max travel distance inside the track
   const maxTranslate = trackHeight - fanHeight;
-
   const translateY = scrollProgress * maxTranslate;
 
-  // Slow and smooth rotation — 2 full turns
-  const rotateDeg = scrollProgress * 540;
+  const rotateDeg = scrollProgress * 720;
 
   fan.style.transform = `translateY(${translateY}px) rotate(${rotateDeg}deg)`;
 });

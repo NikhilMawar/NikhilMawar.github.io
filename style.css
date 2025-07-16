@@ -744,6 +744,15 @@ a:hover .nav-anim::after {
   object-position: 0% 0%;
 }
 
+@media (max-width: 768px) {
+
+  .journey-hero-image {
+    width: 80vw;
+    height: 50vw;
+    margin-bottom: 20px;
+  }
+}
+
 /* ===================== S P E C I A L    S E C T I O N ====================*/
 .journey-roles-section {
   width: 100%;
@@ -782,6 +791,12 @@ a:hover .nav-anim::after {
   text-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
+@media (max-width: 768px) {
+  .role-title {
+    font-size: 20px;
+  }
+}
+
 .role-list {
   list-style: none;
   padding: 0;
@@ -798,25 +813,95 @@ a:hover .nav-anim::after {
 /* Fan Column */
 .roles-right {
   flex: 1;
-  position: relative;
+  position: relative; /* For absolutely positioning fan */
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  height: auto; /* dynamic via JS */
+  overflow: visible;
 }
 
 .fan-track {
-  position: sticky;
-  top: 20vh;
-  height: 100%; /* Changed from 60vh */
+  /* Remove sticky and top */
+  position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
-  align-items: flex-start; /* Align to top */
+  align-items: flex-start;
   justify-content: center;
+  overflow: visible;
 }
 
 .fan-svg {
+  position: absolute; /* absolute inside fan-track */
+  top: 0;
   width: 100px;
   height: 100px;
   transition: transform 0.2s ease-out;
   will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .roles-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    gap: 0;
+    width: 80vw;
+    align-items: start;
+  }
+
+  .roles-left {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .role-block {
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .role-title {
+    min-width: auto;
+    font-size: 24px;
+    white-space: normal;
+  }
+
+  .role-list {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .role-list li {
+    margin-bottom: 6px;
+  }
+
+  .roles-right {
+    grid-column: 2;
+    align-self: start;
+    justify-self: center;
+    margin-top: 0;
+    width: 60px;
+    position: relative;
+    overflow: visible;
+    height: auto; /* will be set by JS */
+  }
+
+  .fan-track {
+    height: 100%;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .fan-svg {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+  }
 }
