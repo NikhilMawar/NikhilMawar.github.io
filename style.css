@@ -1014,3 +1014,68 @@ a:hover .nav-anim::after {
     padding: 6vh 0;
   }
 }
+
+/* ====================================Talk section =================================*/
+.talk-section {
+  width: 100%;
+  background-color: #121212;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.talk-content {
+  width: 80vw;
+  max-width: 1200px; /* limit content from stretching too far */
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: nowrap; /* prevents wrap on large screens */
+}
+
+.talk-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.talk-text {
+  flex: 1;
+}
+
+.talk-heading {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 200;
+  font-size: clamp(32px, 8vw, 80px);
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.talk-subtext {
+  line-height: 1.6;
+  color: #cfcfcf;
+  max-width: 100%;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .talk-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .talk-text {
+    text-align: center;
+  }
+
+  .talk-heading {
+    font-size: 1.6rem;
+  }
+
+  .talk-subtext {
+    font-size: 0.95rem;
+  }
+}
