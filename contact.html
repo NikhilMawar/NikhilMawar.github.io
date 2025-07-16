@@ -13,12 +13,28 @@
 
   <!-- Navbar (Optional, same as index) -->
   <div class="floating-navbar" id="floatingNavbar">
-    <a href="index.html"><img src="images/logo.svg" class="logo" alt="Logo" /></a>
-    <ul class="nav-links">
-      <li><a href="journey.html">Journey</a></li>
-      <li><a href="index.html#projects">Projects</a></li>
-      <li><a href="index.html#about">About</a></li>
-    </ul>
+    <a href="index.html">
+    <img src="images/logo.svg" alt="Logo" class="logo" />
+    </a>
+    <div class="burger" id="burgerMenu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-collapse" id="navCollapse">
+      <ul class="nav-links">
+        <li class="JetBrains14"><a href="journey.html"><span class="nav-anim" data-text="Journey">Journey</span></a></li>
+        <li class="JetBrains14"><a href="index.html#projects"><span class="nav-anim" data-text="Projects">Projects</span></a></li>
+        <li class="JetBrains14"><a href="index.html#about"><span class="nav-anim" data-text="About">About</span></a></li>
+      </ul>
+      <a href="contact.html" class="contact-btn JetBrains14">
+        <span class="pre-icon">
+          <img src="icons/hello.svg" />
+        </span>
+        <span class="btn-text JetBrains14">Say Hi!</span>
+        <span class="arrow-icon">
+          <img src="icons/arrow.svg" />
+        </span>
+      </a>
+    </div>
   </div>
 
   <!-- Contact Section -->
