@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, a, button, input, textarea {
   font-family: 'Inter', sans-serif;
   background-color: #121212;
   color: #fff;
@@ -1048,7 +1048,7 @@ a:hover .nav-anim::after {
 .talk-heading {
   font-family: "Jersey 10", sans-serif;
   font-weight: 200;
-  font-size: clamp(32px, 8vw, 80px);
+  font-size: clamp(48px, 10vw, 80px);
   margin-bottom: 12px;
   color: #fff;
 }
@@ -1079,3 +1079,150 @@ a:hover .nav-anim::after {
     font-size: 0.95rem;
   }
 }
+
+
+
+/*==============================form section=======================================*/
+.contact-form-section {
+  background-color: #121212;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-content {
+  width: 80vw;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Left Panel */
+.contact-left {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-left a {
+  cursor: none; /* Hides default cursor */
+}
+
+.big-email {
+  position: relative;
+  display: inline-block;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 200;
+  font-size: clamp(1.5rem, 5vw, 48px);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.big-email::after {
+  content: "→";
+  position: absolute;
+  right: -1.2em;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-10px);
+  font-size: 0.9em;
+  color: #fff;
+}
+
+a:hover .big-email::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Right Panel */
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #1e1e1e;
+  border: none;
+  padding: 14px 16px;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 1px solid #fff;
+}
+
+/* Say Hi Button Styling */
+.say-hi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: #121212;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.say-hi-btn:hover {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.say-hi-btn img {
+  height: 18px;
+  width: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact-form-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-social-links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+

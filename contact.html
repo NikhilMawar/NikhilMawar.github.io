@@ -74,21 +74,54 @@
   </div>
 </section>
 
-  <!-- Contact Section -->
-  <main class="contact-page">
-    <section class="contact-container">
-      <h1 class="contact-heading">Say Hi!</h1>
-      <p class="contact-subtext">Got an idea, project, or just want to chat? Let's connect!</p>
+<section class="contact-form-section">
+  <div class="contact-form-content">
 
-      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="contact-btn">Send Message</button>
+    <!-- Left Section -->
+    <div class="contact-left">
+        <a href="mailto:nikhlmawar0@gmail.com" data-text="nikhilmawar0@gmail.com">
+            <span class="nav-anim big-email">
+                nikhilmawar0@gmail.com
+            </span>
+        </a>
+
+      <div class="contact-social-links">
+        <a href="https://linkedin.com/in/nikhilmawar" target="_blank">
+            <span class="nav-anim JetBrains18" data-text="Linkedin">
+                Linkedin ⤴ ↗
+            </span>
+        </a>
+        
+        <a href="https://www.behance.net/nikhilmawar1" target="_blank">
+            <span class="nav-anim JetBrains18" data-text="Behance">
+                Behance ⤴ ↗
+            </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Section (Form) -->
+    <div class="contact-right">
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button class="contact-btn JetBrains14" style="width: fit-content;" type="submit">
+        <span class="pre-icon">
+          <!-- Replace with your own SVG icon -->
+          <img src="icons/message.svg"/>
+        </span>
+        <span class="btn-text JetBrains14">Send Message</span>
+        <span class="arrow-icon">
+          <!-- Replace with your arrow SVG -->
+          <img src="icons/arrow.svg" />
+        </span>
+      </button>
       </form>
-    </section>
-  </main>
+    </div>
 
+  </div>
+</section>
   
 
   <!-- Footer (Optional same as index.html) -->
