@@ -743,3 +743,80 @@ a:hover .nav-anim::after {
   margin-top: 40px;
   object-position: 0% 0%;
 }
+
+/* ===================== S P E C I A L    S E C T I O N ====================*/
+.journey-roles-section {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #121212;
+}
+
+.roles-container {
+  display: flex;
+  gap: 40px;
+  width: 80vw;
+}
+
+.roles-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.role-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.role-title {
+  font-family: 'Jersey 10', sans-serif;
+  font-size: 48px;
+  white-space: nowrap;
+  min-width: 120px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.role-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.role-list li {
+  margin-bottom: 12px;
+}
+
+/* Fan Column */
+.roles-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.fan-track {
+  position: sticky;
+  top: 20vh;
+  height: 100%; /* Changed from 60vh */
+  width: 100%;
+  display: flex;
+  align-items: flex-start; /* Align to top */
+  justify-content: center;
+}
+
+.fan-svg {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}

@@ -140,3 +140,32 @@ const exclamations = document.getElementById("animatedExclamations");
   }
 
   setInterval(animateExclamations, 600); // Change every 300ms
+
+
+// Fan animation
+// Fan scroll animation
+const fan = document.querySelector(".fan-svg");
+const fanTrack = document.querySelector(".fan-track");
+const journeySection = document.querySelector(".journey-roles-section");
+
+window.addEventListener("scroll", () => {
+  const sectionTop = journeySection.offsetTop;
+  const sectionHeight = journeySection.offsetHeight;
+  const fanHeight = fan.offsetHeight;
+  const trackHeight = fanTrack.offsetHeight;
+
+  const scrollY = window.scrollY + window.innerHeight / 2;
+
+  // scrollProgress between 0 and 1
+  const scrollProgress = Math.min(Math.max((scrollY - sectionTop) / sectionHeight, 0), 1);
+
+  // Max travel distance inside the track
+  const maxTranslate = trackHeight - fanHeight;
+
+  const translateY = scrollProgress * maxTranslate;
+
+  // Slow and smooth rotation — 2 full turns
+  const rotateDeg = scrollProgress * 540;
+
+  fan.style.transform = `translateY(${translateY}px) rotate(${rotateDeg}deg)`;
+});
