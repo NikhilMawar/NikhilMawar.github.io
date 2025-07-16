@@ -779,6 +779,9 @@ a:hover .nav-anim::after {
   background-color: #121212;
 }
 
+.journey-closure p{
+  padding-bottom: 50vh;
+}
 .roles-container {
   display: flex;
   gap: 40px;
@@ -902,7 +905,7 @@ a:hover .nav-anim::after {
     align-self: start;
     justify-self: center;
     margin-top: 0;
-    width: 60px;
+    width: 80vw;
     position: relative;
     overflow: visible;
     height: auto; /* will be set by JS */
