@@ -28,10 +28,12 @@ window.addEventListener("scroll", function () {
   const triggerPoint = window.innerHeight - 50;
 
   // Always sticky for pages that are not index.html
-  if (window.location.pathname.includes("journey.html")) {
-    navbar.classList.add("sticky");
-    return;
-  }
+  if (
+  window.location.pathname.includes("journey.html") ||
+  window.location.pathname.includes("contact.html")) {
+  navbar.classList.add("sticky");
+  return;
+}
 
   if (window.scrollY > triggerPoint) {
     navbar.classList.add("sticky");

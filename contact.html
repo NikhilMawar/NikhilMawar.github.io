@@ -19,7 +19,7 @@
     </div>
 
   <!-- Navbar (Optional, same as index) -->
-  <div class="floating-navbar" id="floatingNavbar">
+    <div class="floating-navbar" id="floatingNavbar">
     <a href="index.html">
     <img src="images/logo.svg" alt="Logo" class="logo" />
     </a>
@@ -42,7 +42,7 @@
         </span>
       </a>
     </div>
-  </div>
+    </div>
 
 
 <section class="greeting-strip">
@@ -79,10 +79,8 @@
 
     <!-- Left Section -->
     <div class="contact-left">
-        <a href="mailto:nikhlmawar0@gmail.com" data-text="nikhilmawar0@gmail.com">
-            <span class="nav-anim big-email">
-                nikhilmawar0@gmail.com
-            </span>
+        <a href="mailto:nikhilmawar0@gmail.com" class="nav-anim big-email" data-text="nikhilmawar0@gmail.com">
+            nikhilmawar0@gmail.com
         </a>
 
       <div class="contact-social-links">
@@ -102,22 +100,24 @@
 
     <!-- Right Section (Form) -->
     <div class="contact-right">
-      <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-        <button class="contact-btn JetBrains14" style="width: fit-content;" type="submit">
+      <form class="contact-form" action="https://formsubmit.co/nikhilmawar0@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+
+      <button class="contact-btn JetBrains14" style="width: fit-content;" type="submit">
         <span class="pre-icon">
-          <!-- Replace with your own SVG icon -->
-          <img src="icons/message.svg"/>
+          <img src="icons/message.svg" />
         </span>
         <span class="btn-text JetBrains14">Send Message</span>
         <span class="arrow-icon">
-          <!-- Replace with your arrow SVG -->
           <img src="icons/arrow.svg" />
         </span>
       </button>
-      </form>
+    </form>
     </div>
 
   </div>

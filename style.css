@@ -56,7 +56,7 @@ html, body, a, button, input, textarea {
   bottom: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(12, 12, 12, 0.3);
+  background: rgba(12, 12, 12, 1.0);
   border: 1px solid rgba(47, 47, 47, 1.0);
   border-radius: 50px;
   padding: 10px 10px 10px 20px;
@@ -105,7 +105,7 @@ html, body, a, button, input, textarea {
     border-radius: 10vw !important;
     bottom: auto !important;
     transform: none !important;
-    background: rgba(12, 12, 12, 0.3); /* darker bg for contrast */
+    background: rgba(12, 12, 12, 1.0); /* darker bg for contrast */
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 1000 !important;
@@ -115,7 +115,7 @@ html, body, a, button, input, textarea {
 
   .nav-collapse {
     position: absolute;
-    top: 60px;
+    top: 80px;
     right: 0;
     background: #121212;
     border-radius: 5vw;
@@ -1119,25 +1119,24 @@ a:hover .nav-anim::after {
   font-weight: 200;
   font-size: clamp(1.5rem, 5vw, 48px);
   color: #fff;
-  cursor: pointer;
   text-decoration: none;
+  cursor: none; /* hide system cursor */
   transition: color 0.3s ease;
 }
 
 .big-email::after {
-  content: "→";
+  content: "";
   position: absolute;
-  right: -1.2em;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateX(-10px);
-  font-size: 0.9em;
-  color: #fff;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
 }
 
-a:hover .big-email::after {
-  opacity: 1;
-  transform: translateX(0);
+.big-email:hover::after {
+  width: 100%;
 }
 
 .contact-social-links {
