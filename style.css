@@ -850,7 +850,7 @@ a:hover .nav-anim::after {
   /* Remove sticky and top */
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -880,6 +880,7 @@ a:hover .nav-anim::after {
     grid-column: 1;
     display: flex;
     flex-direction: column;
+    width: 150%;
     gap: 10px;
   }
 
@@ -917,6 +918,7 @@ a:hover .nav-anim::after {
 
   .fan-track {
     height: 100%;
+    width: 50%;
     position: relative;
     overflow: visible;
     display: flex;
