@@ -880,7 +880,7 @@ a:hover .nav-anim::after {
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    width: 150%;
+    width: 200%;
     gap: 10px;
   }
 
