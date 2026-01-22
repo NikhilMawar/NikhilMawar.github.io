@@ -1119,7 +1119,7 @@ a:hover .nav-anim::after {
   display: inline-block;
   font-family: "Jersey 10", sans-serif;
   font-weight: 200;
-  font-size: clamp(32px, 8vw, 80px);
+  font-size: clamp(16px, 8vw, 80px);
   /*font-size: clamp(1.5rem, 5vw, 48px);*/
   color: #fff;
   text-decoration: none;
