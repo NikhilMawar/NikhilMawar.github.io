@@ -774,6 +774,102 @@ a:hover .nav-anim::after {
   }
 }
 
+/* ================== JOURNEY CLIENTS SECTION ==================*/
+.journey-clients {
+  width: 100%;
+  background-color: #121212;
+  padding: 100px 0 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.clients-container {
+  width: 80vw;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* Logo Card */
+.client-logo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #181818;
+  border: 1px solid #2f2f2f;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none; /* matches your custom cursor */
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.client-logo img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%) brightness(0.9);
+}
+
+/* Hover zoom */
+.client-logo:hover {
+  transform: scale(1.05);
+  border-color: #ffffff;
+}
+
+.client-logo:hover img {
+  transform: scale(1.1);
+  filter: grayscale(0%) brightness(1);
+}
+
+/* Tooltip */
+.client-logo::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #ffffff;
+  color: #121212;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.client-logo:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .journey-clients {
+    padding: 80px 0 100px;
+  }
+}
+
 /* ===================== S P E C I A L    S E C T I O N ====================*/
 .journey-roles-section {
   width: 100%;
