@@ -764,7 +764,7 @@ a:hover .nav-anim::after {
   object-fit: cover;
   margin-top: 40px;
   object-position: 0% 50%;
-  filter: grayscale(100%);
+  /*filter: grayscale(100%);*/
 }
 
 @media (max-width: 768px) {
