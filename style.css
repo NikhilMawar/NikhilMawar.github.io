@@ -968,7 +968,7 @@ a:hover .nav-anim::after {
   justify-content: center;
   align-items: center;
   background-color: #121212;
-  padding: 4vh 0; /* Add more breathing space */
+  padding: 10vh 0; /* Add more breathing space */
   overflow: hidden;
 }
 
