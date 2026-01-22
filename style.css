@@ -1036,7 +1036,7 @@ a:hover .nav-anim::after {
   display: flex;
   justify-content: center; /* ✅ center the 80vw block */
   background-color: #121212;
-  padding-bottom: 60px;
+  padding-bottom: 2vh;
 }
 
 .closure-text {
