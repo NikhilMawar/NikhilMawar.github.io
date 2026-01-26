@@ -186,6 +186,89 @@ window.addEventListener("scroll", () => {
 });
 
 
+//==========================================AI CHAT BOT======================================================/
+
+const eyes = document.getElementById("eyes");
+const leftWrap = document.querySelector(".eye-wrap.left");
+const rightWrap = document.querySelector(".eye-wrap.right");
+const blushLeft = document.getElementById("blush-left");
+const blushRight = document.getElementById("blush-right");
+
+window.addEventListener("mousemove", (e) => {
+  const r = document.getElementById("sphere").getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+
+  const dx = e.clientX - cx;
+  const dy = e.clientY - cy;
+
+  const ex = Math.max(-40, Math.min(40, dx / 5));
+  const ey = Math.max(-40, Math.min(40, dy / 5));
+
+  eyes.style.transform = `translate(${ex}px, ${ey}px)`;
+
+  const centerThreshold = 24;
+  const distance = Math.abs(dx);
+  let converge = 0;
+
+  if(distance < centerThreshold){
+    converge = (centerThreshold - distance) * 0.45;
+    eyes.classList.add("focused");
+    blushLeft.classList.add("show");
+    blushRight.classList.add("show");
+  } else {
+    eyes.classList.remove("focused");
+    blushLeft.classList.remove("show");
+    blushRight.classList.remove("show");
+  }
+
+  leftWrap.style.transform = `translateX(${converge}px)`;
+  rightWrap.style.transform = `translateX(${-converge}px)`;
+});
+
+function blink(){
+  eyes.classList.add("blink");
+  setTimeout(()=>eyes.classList.remove("blink"),220);
+  setTimeout(blink, 2200 + Math.random()*4200);
+}
+blink();
+
+/* ===== Text Bubble Typing Effect ===== */
+const bubble = document.getElementById("text-bubble");
+const messages = [
+  "Don't be shy to contact me!",
+  "The journey was like a roller coaster.",
+  "Every project taught me something new.",
+  "Creativity is my fuel."
+];
+let msgIndex = 0;
+let charIndex = 0;
+
+function typeMessage(){
+  if(charIndex < messages[msgIndex].length){
+    bubble.textContent += messages[msgIndex][charIndex];
+    charIndex++;
+    setTimeout(typeMessage, 60);
+  } else {
+    setTimeout(() => {
+      eraseMessage();
+    }, 2000);
+  }
+}
+
+function eraseMessage(){
+  if(charIndex > 0){
+    bubble.textContent = bubble.textContent.slice(0, -1);
+    charIndex--;
+    setTimeout(eraseMessage, 40);
+  } else {
+    msgIndex = (msgIndex + 1) % messages.length;
+    setTimeout(typeMessage, 500);
+  }
+}
+
+typeMessage();
+
 
 
 //==========================================================C O N T A C T   P A G E ==================================================
