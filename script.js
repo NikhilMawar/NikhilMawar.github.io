@@ -257,7 +257,7 @@ function randomEyesMobile() {
 
 // Run randomly every 0.5–1.5s for natural movement
 function startRandomEyesMobile() {
-  const interval = 500 + Math.random() * 1000;
+  const interval = 1000 + Math.random() * 3000;
   setTimeout(() => {
     randomEyesMobile();
     startRandomEyesMobile();
