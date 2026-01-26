@@ -1140,6 +1140,35 @@ a:hover .nav-anim::after {
   border-right:8px solid #282828;
 }
 
+@media (max-width: 768px) {
+  .sphere-bubble-container {
+    flex-direction: column;       /* Stack vertically */
+    align-items: center;  
+    text-align: center;
+    gap: 20px;
+    left: 0 !important;           /* reset offset */
+    transform: none !important;   /* reset offset */
+    margin: 40px auto;                   /* Smaller gap between sphere & text *                /* Optional padding */
+  }
+
+  .sphere {
+    width: 180px;                 /* Smaller sphere on mobile */
+    height: 180px;
+  }
+
+  .sphere-overlay svg {
+    width: 130%;
+    height: 130%;
+    transform: translate(6px, 8px);
+  }
+
+  .text-bubble {
+    max-width: 80%;               /* Prevent text from going off-screen */
+    font-size: 14px;              /* Slightly smaller text on mobile */
+    padding: 12px 16px;
+  }
+}
+
 /*=======================================================C O N T A C T P A G E ===========================================================*/
 
 /* === GREETING STRIP === */
