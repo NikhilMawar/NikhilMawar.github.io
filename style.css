@@ -1067,7 +1067,7 @@ a:hover .nav-anim::after {
   gap: 40px;
 
   margin-top: 60px;
-  margin-left: 30vw; /* keeps content placement */
+  margin-left: 20vw; /* keeps content placement */
 
   padding: 60px;
   z-index: 1;
@@ -1163,15 +1163,21 @@ a:hover .nav-anim::after {
 
 @media (max-width: 768px) {
   .sphere-bubble-container {
+    min-width: 80vw;
     flex-direction: column;       /* Stack vertically */
     align-items: center;  
     text-align: center;
     gap: 20px;
     left: 0 !important;           /* reset offset */
     transform: none !important;   /* reset offset */
-    margin: 40px auto;                   /* Smaller gap between sphere & text *                /* Optional padding */
+    margin: 40px auto;                   /* Smaller gap between sphere & text */
   }
 
+  .sphere-bubble-container::before {
+    left: 0 !important;          /* background spans full width */
+    width: 100% !important;
+    min-height: 800px;
+  }
   .sphere {
     width: 180px;                 /* Smaller sphere on mobile */
     height: 180px;
@@ -1184,7 +1190,7 @@ a:hover .nav-anim::after {
   }
 
   .text-bubble {
-    max-width: 80%;               /* Prevent text from going off-screen */
+    width: 120vw;               /* Prevent text from going off-screen */
     font-size: 14px;              /* Slightly smaller text on mobile */
     padding: 12px 16px;
   }
