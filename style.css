@@ -1122,8 +1122,9 @@ a:hover .nav-anim::after {
   background:#282828;
   border:1.5px solid #484848;
   color:#fff;
-  font-family: "Jersey 10", sans-serif;
-  font-size: clamp(32px, 8vw, 80px);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  opacity: 80%;
   position:relative;
   overflow:hidden;
   min-height:40px;
