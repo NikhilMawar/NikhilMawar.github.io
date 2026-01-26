@@ -239,6 +239,34 @@ window.addEventListener("scroll", () => {
   }
   blink();
 
+  // Mobile random eye movement
+function randomEyesMobile() {
+  if (window.innerWidth <= 768) { // only for mobile/tablet
+    const maxOffset = 40; // same as desktop limits
+    const ex = (Math.random() * maxOffset * 2) - maxOffset; // -40 to 40
+    const ey = (Math.random() * maxOffset * 2) - maxOffset;
+
+    eyes.style.transform = `translate(${ex}px, ${ey}px)`;
+
+    // Optional: small eye wrap converge
+    const converge = (Math.random() * 20) - 10; // -10 to 10 px
+    leftWrap.style.transform = `translateX(${converge}px)`;
+    rightWrap.style.transform = `translateX(${-converge}px)`;
+  }
+}
+
+// Run randomly every 0.5–1.5s for natural movement
+function startRandomEyesMobile() {
+  const interval = 500 + Math.random() * 1000;
+  setTimeout(() => {
+    randomEyesMobile();
+    startRandomEyesMobile();
+  }, interval);
+}
+
+// Start mobile random eyes after page load
+if (window.innerWidth <= 768) startRandomEyesMobile();
+
   // Text bubble typing effect
   const messages = [
     "Don't be shy to contact me!",
@@ -272,6 +300,10 @@ window.addEventListener("scroll", () => {
 
   typeMessage();
 })();
+
+//======================mobile ai============//
+
+
 
 
 
