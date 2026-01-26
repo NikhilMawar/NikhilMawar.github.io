@@ -895,21 +895,22 @@ a:hover .nav-anim::after {
   flex: 2;
   display: flex;
   flex-direction: column;
+  align-items: left;
   gap: 60px;
 }
 
 .role-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: flex-start;
-  gap: 40px;
+  gap: 60px;
 }
 
 .role-title {
   font-family: 'Jersey 10', sans-serif;
   font-size: 48px;
   white-space: nowrap;
-  min-width: 120px;
+  min-width: 55%;
   color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   padding-left: 10vw;
@@ -989,7 +990,7 @@ a:hover .nav-anim::after {
   }
 
   .role-title {
-    min-width: 20%;
+    min-width: 25%;
     font-size: 24px;
     white-space: normal;
     padding-left: 0px;
