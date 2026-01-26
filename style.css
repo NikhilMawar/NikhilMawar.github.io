@@ -1064,7 +1064,7 @@ a:hover .nav-anim::after {
   align-items: center;
   gap: 40px;
   margin-top: 60px; /* spacing below hero image */
-  left: 30%; /* fixed distance from left if desired */
+  /*left: 30%;*/ /* fixed distance from left if desired */
   transform: translateX(-30%);
 }
 
