@@ -1116,7 +1116,7 @@ a:hover .nav-anim::after {
 
 /* Text Bubble */
 .text-bubble {
-  max-width:300px;
+  max-width:80%;
   padding:15px 20px;
   border-radius:24px 24px 24px 0px;
   background:#282828;
