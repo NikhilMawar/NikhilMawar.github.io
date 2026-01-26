@@ -680,7 +680,8 @@ a:hover .nav-anim::after {
     flex-direction: column;
     gap: 40px;
     margin-bottom: 40px;
-    align-items: center ;
+    align-items: left ;
+    opacity: 80%;
   }
 
   .footer-left{
@@ -698,6 +699,7 @@ a:hover .nav-anim::after {
 
   .footer-right {
     align-items: flex-start;
+    left:0%
 
   }
 }
