@@ -1065,9 +1065,29 @@ a:hover .nav-anim::after {
   display: flex;
   align-items: center;
   gap: 40px;
-  margin-top: 60px; /* spacing below hero image */
-  left: 50%; /* fixed distance from left if desired */
-  transform: translateX(-30%);
+
+  margin-top: 60px;
+  margin-left: 30vw; /* keeps content placement */
+
+  padding: 60px;
+  z-index: 1;
+}
+
+.sphere-bubble-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35vw;          /* pull background to screen edge */
+  width: calc(100% + 40vw);
+  height: 100%;
+
+  background-image: url("images/botbg.svg");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  border-radius: 32px;
+  z-index: -1;
 }
 
 /* Sphere styles (same as before) */
