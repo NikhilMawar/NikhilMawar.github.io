@@ -599,7 +599,7 @@ a:hover .nav-anim::after {
 
 .footer-tagline {
   font-size: 18px;
-  opacity: 0.8;
+  opacity: 0.6;
   margin-bottom: 20px;
 }
 
@@ -611,6 +611,7 @@ a:hover .nav-anim::after {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  opacity: 0.6;
   gap: 24px;
   min-width: 280px;
 }
@@ -885,6 +886,7 @@ a:hover .nav-anim::after {
 .journey-closure p{
   padding-bottom: 2vh;
 }
+
 .roles-container {
   display: flex;
   gap: 40px;
@@ -1053,7 +1055,7 @@ a:hover .nav-anim::after {
 @media (max-width: 768px) {
   .closure-text {
     width: 80vw;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 
