@@ -1277,6 +1277,15 @@ a:hover .nav-anim::after {
   border: 2px solid #fff;
 }
 
+.talk-image iframe {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  pointer-events: none;
+}
+
 .talk-text {
   flex: 1;
 }
