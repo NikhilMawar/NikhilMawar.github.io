@@ -1190,7 +1190,7 @@ a:hover .nav-anim::after {
   }
 
   .text-bubble {
-    width: 120vw;               /* Prevent text from going off-screen */
+    width: 80vw;               /* Prevent text from going off-screen */
     font-size: 14px;              /* Slightly smaller text on mobile */
     padding: 12px 16px;
   }
