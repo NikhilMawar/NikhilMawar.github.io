@@ -1173,11 +1173,6 @@ a:hover .nav-anim::after {
     margin: 40px auto;                   /* Smaller gap between sphere & text */
   }
 
-  .sphere-bubble-container::before {
-    left: 0 !important;          /* background spans full width */
-    width: 100% !important;
-    min-height: 800px;
-  }
   .sphere {
     width: 180px;                 /* Smaller sphere on mobile */
     height: 180px;
