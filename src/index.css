@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #EFECE4;
+  color: #0F0E0D;
+  font-family: "Inter", sans-serif;
+}
+
+/* Hero Ticker time management */

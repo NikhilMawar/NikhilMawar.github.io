@@ -1,0 +1,115 @@
+import { useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
+import Bulb from "../../assets/svg/bulb.svg?react";
+import BulbRope from "./BulbRope";
+
+export default function ThemeToggle({
+  theme,
+  onToggle,
+  startAnimation = false,
+}) {
+  const ropeControls = useAnimationControls();
+  const [isPulling, setIsPulling] = useState(false);
+
+  const isDark = theme === "dark";
+
+  const handleToggle = async () => {
+    if (isPulling) return;
+
+    setIsPulling(true);
+
+    // Pull chain downward.
+    await ropeControls.start("pulled");
+
+    // Theme changes while rope is held down.
+    onToggle();
+
+    // Quick elastic overshoot.
+    await ropeControls.start("rebound");
+
+    // Return to natural slack curve.
+    await ropeControls.start("rest");
+
+    setIsPulling(false);
+  };
+
+  return (
+    <motion.button
+      type="button"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      onClick={handleToggle}
+      className="
+        fixed
+        right-[clamp(20px,2.6vw,50px)]
+        top-0
+        z-[140]
+        hidden
+        h-[clamp(180px,11vw,212px)]
+        w-[clamp(76px,4.8vw,92px)]
+        cursor-pointer
+        border-0
+        bg-transparent
+        p-0
+        outline-none
+        md:block
+      "
+      initial={{ opacity: 0, y: -18 }}
+      animate={
+        startAnimation
+          ? { opacity: 1, y: 0 }
+          : { opacity: 0, y: -18 }
+      }
+      transition={{
+        duration: 0.8,
+        delay: 0.25,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <div className="relative h-full w-full overflow-visible">
+        {/* Fixed support cord + fixed bulb */}
+        <Bulb
+          className={`
+            absolute left-0 top-0
+            h-[clamp(118px,7.92vw,152px)]
+            w-auto
+            transition-[color,filter]
+            duration-500
+            ${
+              isDark
+                ? "text-[#949490]"
+                : "text-[#5D5C59]"
+            }
+          `}
+          style={{
+            "--bulb-fill": isDark ? "#ECECE7" : "#efece4",
+            filter: isDark
+            ? `
+                drop-shadow(0 0 6px rgb(255, 255, 255))
+                drop-shadow(0 0 18px rgba(236,236,231,0.08))
+                `
+            : "none",
+          }}
+        />
+
+        {/* Animated pull-chain only */}
+        <BulbRope
+          controls={ropeControls}
+          className={`
+            absolute
+            left-[clamp(28px,2.1vw,40px)]
+            top-0
+            h-[clamp(145px,9.8vw,188px)]
+            w-[clamp(28px,2vw,40px)]
+            transition-colors
+            duration-500
+            ${
+              isDark
+                ? "text-[#808080]"
+                : "text-[#5D5C59]"
+            }
+          `}
+        />
+      </div>
+    </motion.button>
+  );
+}
