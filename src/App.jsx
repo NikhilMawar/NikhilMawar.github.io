@@ -5,6 +5,7 @@ import Work from "./sections/Work";
 import PortraitTest from "./components/about/PortraitTest";
 import GlobeFlight from "./components/about/GlobeFlight";
 import About from "./sections/About";
+import { themeColors } from "./utils/theme";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,28 +34,32 @@ function App() {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
+  const colors = themeColors[theme];
+
   return (
-    <>
-      <Hero
-        startAnimation={heroReady}
-        theme={theme}
-        onThemeToggle={toggleTheme}
-      />
+    <main
+      className="relative isolate min-h-screen"
+      style={{ backgroundColor: colors.bg }}
+    > 
 
-      <Work theme={theme} />
+      <div className="relative z-[2]">
+        <Hero
+          startAnimation={heroReady}
+          theme={theme}
+          onThemeToggle={toggleTheme}
+        />
 
-      {/*<div className="min-h-screen flex items-center justify-center">
-        <PortraitTest />
-      </div>*/}
+        <Work theme={theme} />
 
-      <About theme={theme} />
+        <About theme={theme} />
 
-      <div className="min-h-screen flex items-center justify-center">
-        <GlobeFlight theme={theme} />
+        <div className="relative z-[3] flex min-h-screen items-center justify-center">
+          <GlobeFlight theme={theme} />
+        </div>
       </div>
 
       {loading && <Preloader theme={theme} />}
-    </>
+    </main>
   );
 }
 

@@ -10,6 +10,7 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
   return (
     <motion.article
       className="
+        relative z-[3]
         group mx-auto grid h-[400px] w-full max-w-[1820px]
         grid-cols-12 overflow-hidden rounded-[clamp(34px,1.5vw,44px)]
         border-[2px]
@@ -40,6 +41,7 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
       {/* Left Content */}
       <div
         className="
+          relative z-[4]
           col-span-5
           flex
           flex-col
@@ -86,11 +88,11 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
       </div>
 
       {/* Right Image / Placeholder */}
-      <div className="relative col-span-7 overflow-hidden">
+      <div className="relative z-[4] col-span-7 overflow-hidden">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 z-[2] h-full w-full object-cover"
           variants={{
             rest: { scale: 1 },
             hover: { scale: 1.08 },

@@ -3,6 +3,7 @@ import { themeColors } from "../utils/theme";
 import Button from "../components/common/Button";
 import { useScroll } from "framer-motion";
 import AboutStack from "../components/about/AboutStack";
+import DotField from "../components/common/DotField";
 
 const experience = [
   { name: "Shyft Pvt. Ltd.", role: "Product Designer", date: "March 2022 – Present" },
@@ -69,11 +70,14 @@ export default function About({ theme = "light" }) {
       ref={sectionRef}
       className="relative h-[350vh] w-full"
       style={{
-        backgroundColor: colors.bg,
+        /*backgroundColor: colors.bg,*/
         color: colors.heading,
       }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+
+    <DotField theme={theme} />
+
+      <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <div className="mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(100px,7vw,135px)]">
           <p
             className="mb-[clamp(12px,1vw,18px)] text-[clamp(12px,0.83vw,16px)] font-medium uppercase tracking-[0.02em]"

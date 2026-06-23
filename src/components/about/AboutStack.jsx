@@ -66,7 +66,7 @@ export default function AboutStack({ groups, theme = "light", progress }) {
             "
             style={{
               color: colors.heading,
-              backgroundColor: colors.bg,
+              /*backgroundColor: colors.bg,*/
               borderColor: colors.tertiary,
             }}
           >
