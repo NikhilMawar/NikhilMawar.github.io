@@ -90,7 +90,7 @@ export default function About({ theme = "light" }) {
           </h2>
 
           <div
-            className="mt-[clamp(24px,2vw,36px)] h-px w-full"
+            className="mt-[clamp(12px,1.05vw,20px)] h-px w-full"
             style={{ backgroundColor: colors.tertiary }}
           />
 
