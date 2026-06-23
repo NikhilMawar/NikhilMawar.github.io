@@ -30,7 +30,7 @@ const projects = [
     title: "Project Three",
     label: "Streaming Experience",
     description:
-      "A media product concept focused on discovery, content cards and premium interaction design.",
+      "An identity verification system for web3 applications that combines biometrics and social proof to authenticate real users and prevent bot manipulation across decentralised platforms. Currently powering 10+ web3 brands.",
       image: project3Image,
       pills: ["UX Researchss", "Product Designss", "Mobile Appss"],
       accentColor: "#6D5DF6",

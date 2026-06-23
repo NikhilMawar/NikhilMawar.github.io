@@ -38,37 +38,47 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
       animate="rest"
     >
       {/* Left Content */}
-      <div className="col-span-5 flex flex-col justify-center px-[clamp(28px,2.3vw,44px)]">
+      <div
+        className="
+          col-span-5
+          flex
+          flex-col
+          px-[clamp(28px,2.3vw,44px)]
+          py-[clamp(36px,2.5vw,48px)]
+        "
+      >
         <p
-          className="mb-[clamp(16px,1.2vw,22px)] text-[clamp(12px,0.83vw,16px)] font-normal uppercase leading-none"
+          className="text-[clamp(12px,0.83vw,16px)] font-normal uppercase leading-none"
           style={{ color: project.accentColor }}
         >
           ✦ {project.label}
         </p>
 
-        <h3
-          className="text-[clamp(36px,3.125vw,60px)] font-semibold leading-[0.95] tracking-[-0.04em]"
-          style={{ color: colors.heading }}
-        >
-          {project.title}
-        </h3>
+        <div className="mt-[clamp(42px,3vw,60px)]">
+          <h3
+            className="text-[clamp(36px,3.125vw,60px)] font-semibold leading-[0.95] tracking-[-0.04em]"
+            style={{ color: colors.heading }}
+          >
+            {project.title}
+          </h3>
 
-        <p
-          className="mt-[clamp(18px,1.4vw,26px)] max-w-[680px] text-[clamp(14px,1.04vw,20px)] font-normal leading-[1.18]"
-          style={{ color: colors.subtext }}
-        >
-          {project.description}
-        </p>
+          <p
+            className="mt-[clamp(20px,1.5vw,30px)] max-w-[680px] text-[clamp(14px,1.04vw,20px)] font-normal leading-[1.18]"
+            style={{ color: colors.subtext }}
+          >
+            {project.description}
+          </p>
+        </div>
 
-        <div className="mt-[clamp(18px,1.4vw,26px)] flex flex-wrap gap-[clamp(8px,0.6vw,12px)]">
+        <div className="mt-auto flex flex-wrap gap-[clamp(8px,0.6vw,12px)]">
           {project.pills?.map((pill) => (
-            <StatusPill 
-              key={pill} 
-              theme={theme} 
-              borderColor={project.accentColor} 
-              textColor={project.accentColor} 
-              backgroundColor={`${project.accentColor}08`} //33 = 20% 1A = 10% 14 = 8% 10 = 6% 0D = 5% 08 = 3%
-            > 
+            <StatusPill
+              key={pill}
+              theme={theme}
+              borderColor={project.accentColor}
+              textColor={project.accentColor}
+              backgroundColor={`${project.accentColor}08`}
+            >
               {pill}
             </StatusPill>
           ))}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Preloader from "./components/preloader/Preloader";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
+import PortraitTest from "./components/journey/PortraitTest";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,6 +40,10 @@ function App() {
       />
 
       <Work theme={theme} />
+
+      <div className="min-h-screen flex items-center justify-center">
+        <PortraitTest />
+      </div>
 
       {loading && <Preloader theme={theme} />}
     </>
