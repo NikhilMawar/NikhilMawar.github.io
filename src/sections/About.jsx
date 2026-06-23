@@ -1,9 +1,8 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { themeColors } from "../utils/theme";
 import Button from "../components/common/Button";
-import StatusPill from "../components/hero/StatusPill";
-import AboutListSection from "../components/about/AboutListSection";
+import { useScroll } from "framer-motion";
+import AboutStack from "../components/about/AboutStack";
 
 const experience = [
   { name: "Shyft Pvt. Ltd.", role: "Product Designer", date: "March 2022 – Present" },
@@ -44,6 +43,25 @@ export default function About({ theme = "light" }) {
     offset: ["start start", "end end"],
   });
 
+  const aboutGroups = [
+    {
+        title: "Experience",
+        items: experience,
+    },
+    {
+        title: "Education",
+        items: education,
+    },
+    {
+        title: "Awards",
+        items: awards,
+    },
+    {
+        title: "Skills",
+        type: "skills",
+        items: skills,
+    },
+    ];
 
   return (
     <section
@@ -56,25 +74,16 @@ export default function About({ theme = "light" }) {
       }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(90px,6.5vw,125px)]">
+        <div className="mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(100px,7vw,135px)]">
           <p
-            className="
-              mb-[clamp(12px,1vw,18px)]
-              text-[clamp(12px,0.83vw,16px)]
-              font-medium uppercase tracking-[0.02em]
-            "
+            className="mb-[clamp(12px,1vw,18px)] text-[clamp(12px,0.83vw,16px)] font-medium uppercase tracking-[0.02em]"
             style={{ color: colors.subtext }}
           >
             My Story
           </p>
 
           <h2
-            className="
-              font-['Syne']
-              text-[clamp(60px,6vw,120px)]
-              font-extrabold leading-[0.9]
-              tracking-[-0.06em]
-            "
+            className="font-['Syne'] text-[clamp(60px,6vw,120px)] font-extrabold leading-[0.9] tracking-[-0.06em]"
             style={{ color: colors.heading }}
           >
             About
@@ -86,16 +95,9 @@ export default function About({ theme = "light" }) {
           />
 
           <div className="grid grid-cols-12 gap-x-[clamp(24px,3vw,58px)] pt-[clamp(32px,2.6vw,50px)]">
-            {/* Left */}
             <div className="col-span-12 lg:col-span-5">
               <div
-                className="
-                  max-w-[760px]
-                  font-['Inter']
-                  text-[clamp(16px,1.04vw,20px)]
-                  font-normal leading-[1.18]
-                  tracking-[-0.02em]
-                "
+                className="max-w-[760px] font-['Inter'] text-[clamp(16px,1.04vw,20px)] font-normal leading-[1.18] tracking-[-0.02em]"
                 style={{ color: colors.subtext }}
               >
                 <p className="mb-[clamp(18px,1.5vw,28px)]">
@@ -110,21 +112,18 @@ export default function About({ theme = "light" }) {
                   <span style={{ color: colors.heading }}>
                     My process is research-first.
                   </span>{" "}
-                  I want to understand why users behave the way they do before I
-                  open Figma.
+                  I want to understand why users behave the way they do before I open Figma.
                 </p>
 
                 <p className="mb-[clamp(18px,1.5vw,28px)]">
                   <span style={{ color: colors.heading }}>
                     I own the full design scope,
                   </span>{" "}
-                  from early research to shipped components, with decisions
-                  debated properly instead of handed down.
+                  from early research to shipped components, with decisions debated properly instead of handed down.
                 </p>
 
                 <p>
-                  Delhi raised, Ontario based — designing interfaces that feel
-                  clear, useful and calm.
+                  Delhi raised, Ontario based — designing interfaces that feel clear, useful and calm.
                 </p>
               </div>
 
@@ -135,60 +134,12 @@ export default function About({ theme = "light" }) {
               </div>
             </div>
 
-            {/* Right */}
-            <div className="relative col-span-12 mt-[64px] overflow-hidden lg:col-span-7 lg:mt-0">
-              <div className="space-y-[clamp(48px,4vw,76px)]">
-                <AboutListSection
-                  title="Experience"
-                  items={experience}
-                  theme={theme}
-                />
-
-                <AboutListSection
-                  title="Education"
-                  items={education}
-                  theme={theme}
-                />
-
-                <AboutListSection
-                  title="Awards"
-                  items={awards}
-                  theme={theme}
-                />
-
-                <section>
-                  <h3
-                    className="
-                      border-b
-                      py-[clamp(14px,1vw,20px)]
-                      font-['Inter']
-                      text-[clamp(12px,0.83vw,16px)]
-                      font-medium uppercase tracking-[0.02em]
-                    "
-                    style={{
-                      color: colors.heading,
-                      backgroundColor: colors.bg,
-                      borderColor: colors.tertiary,
-                    }}
-                  >
-                    Skills
-                  </h3>
-
-                  <div className="flex flex-wrap gap-[clamp(10px,0.8vw,16px)] pt-[clamp(24px,2vw,36px)]">
-                    {skills.map((skill) => (
-                      <StatusPill
-                        key={skill}
-                        theme={theme}
-                        borderColor={colors.tertiary}
-                        textColor={colors.subtext}
-                        backgroundColor="transparent"
-                      >
-                        {skill}
-                      </StatusPill>
-                    ))}
-                  </div>
-                </section>
-              </div>
+            <div className="col-span-12 mt-[64px] lg:col-span-7 lg:mt-0">
+            <AboutStack
+                groups={aboutGroups}
+                theme={theme}
+                progress={scrollYProgress}
+            />
             </div>
           </div>
         </div>
