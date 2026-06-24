@@ -4,7 +4,7 @@ import {themeColors} from "../../utils/theme";
 
 function AnimatedWord({ word }) {
   return (
-    <span className="inline-block whitespace-nowrap">
+    <span className="inline-block overflow-visible whitespace-nowrap">
       {word.split("").map((letter, index) => {
         const rotate = index % 2 === 0 ? -6 : 6;
 
@@ -35,7 +35,7 @@ function AnimatedWord({ word }) {
 
 export default function HeroName({ startAnimation = false }) {
   return (
-    <h1 className="font-['Syne'] text-[clamp(64px,11.6vw,224px)] font-extrabold leading-[0.88] tracking-[-0.07em]">
+    <h1 className="relative z-[99] overflow-visible py-[0.08em] font-['Syne'] text-[clamp(64px,11.6vw,224px)] font-extrabold leading-[0.98] tracking-[-0.07em]">
       <Reveal delay={0.35} start={startAnimation}>
         <AnimatedWord word="Nikhil" />
       </Reveal>

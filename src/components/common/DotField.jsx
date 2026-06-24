@@ -9,22 +9,22 @@ export default function DotField({ theme = "light" }) {
     const field = fieldRef.current;
     if (!field) return;
 
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+
+    let currentX = targetX;
+    let currentY = targetY;
+
     let rafId;
 
     const handleMouseMove = (event) => {
-      const rect = field.getBoundingClientRect();
-
-      targetX = event.clientX - rect.left;
-      targetY = event.clientY - rect.top;
+      targetX = event.clientX;
+      targetY = event.clientY;
     };
 
     const animate = () => {
-      currentX += (targetX - currentX) * 0.14;
-      currentY += (targetY - currentY) * 0.14;
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
 
       field.style.setProperty("--dot-x", `${currentX}px`);
       field.style.setProperty("--dot-y", `${currentY}px`);
@@ -32,8 +32,9 @@ export default function DotField({ theme = "light" }) {
       rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
     animate();
+
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -41,21 +42,52 @@ export default function DotField({ theme = "light" }) {
     };
   }, []);
 
+  const dotOpacity = theme === "dark" ? 0.045 : 0.03;
+  const glowOpacity = theme === "dark" ? 0.06 : 0.04;
+
   return (
     <div
       ref={fieldRef}
-      className="pointer-events-none absolute inset-0 z-[1] hidden md:block"
-      style={{
-        color: colors.heading,
-        opacity: theme === "dark" ? 0.16 : 0.12,
-        backgroundImage:
-          "radial-gradient(circle, currentColor 2px, transparent 1px)",
-        backgroundSize: "16px 16px",
-        WebkitMaskImage:
-          "radial-gradient(circle 320px at var(--dot-x) var(--dot-y), black 0%, transparent 72%)",
-        maskImage:
-          "radial-gradient(circle 320px at var(--dot-x) var(--dot-y), black 0%, transparent 72%)",
-      }}
-    />
+      className="
+        pointer-events-none
+        fixed
+        inset-0
+        z-[1]
+        hidden
+        md:block
+      "
+    >
+      {/* Glow */}
+      <div
+        className="absolute inset-0"
+        style={{
+          opacity: glowOpacity,
+          background:
+            theme === "dark"
+              ? "radial-gradient(circle 520px at var(--dot-x) var(--dot-y), rgba(236,236,231,0.55), transparent 20%)"
+              : "radial-gradient(circle 520px at var(--dot-x) var(--dot-y), rgba(15,14,13,0.22), transparent 20%)",
+        }}
+      />
+
+      {/* Dots */}
+      <div
+        className="absolute inset-0"
+        style={{
+          color: colors.heading,
+          opacity: dotOpacity,
+
+          backgroundImage:
+            "radial-gradient(circle, currentColor 1px, transparent 1px)",
+
+          backgroundSize: "16px 16px",
+
+          WebkitMaskImage:
+            "radial-gradient(circle 340px at var(--dot-x) var(--dot-y), black 0%, transparent 74%)",
+
+          maskImage:
+            "radial-gradient(circle 340px at var(--dot-x) var(--dot-y), black 0%, transparent 74%)",
+        }}
+      />
+    </div>
   );
 }

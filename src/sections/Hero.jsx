@@ -44,7 +44,8 @@ export default function Hero({ startAnimation = false, theme = "light", onThemeT
               className="mb-[clamp(18px,2vw,34px)] 
                         text-[clamp(12px,0.83vw,16px)] 
                         font-medium uppercase 
-                        tracking-[0.02em]"
+                        tracking-[0.02em]
+                        z-[1]"
               style={{ color: colors.subtext }}
             >
               Senior Product Designer
