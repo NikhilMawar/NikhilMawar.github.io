@@ -30,7 +30,7 @@ export default function Button({
       variants={{
         rest: {
           borderColor: colors.tertiary,
-          backgroundColor: "transparent",
+          backgroundColor: colors.bg,
           color: colors.subtext,
         },
         hover: {

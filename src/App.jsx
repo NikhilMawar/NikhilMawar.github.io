@@ -53,6 +53,8 @@ function App() {
 
         <About theme={theme} />
 
+        <PortraitTest theme={theme} className="mx-auto max-w-[420px]" />
+
         <div className="relative z-[3] flex min-h-screen items-center justify-center">
           <GlobeFlight theme={theme} />
         </div>

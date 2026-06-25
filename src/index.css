@@ -17,4 +17,28 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* Portrait Line Animation */
+/* Portrait Line Animation */
+.portrait-line-svg {
+  display: block;
+  overflow: visible;
+}
+
+.portrait-line-svg path {
+  fill: none !important;
+  stroke: currentColor !important;
+
+  stroke-width: 1.25 !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter: url(#brushTexture);
+}
+
+@keyframes portraitLineDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* Hero Ticker time management */
