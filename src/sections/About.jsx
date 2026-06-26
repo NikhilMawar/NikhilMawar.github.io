@@ -106,29 +106,25 @@ export default function About({ theme = "light" }) {
               >
                 <p className="mb-[clamp(18px,1.5vw,28px)]">
                   <span style={{ color: colors.heading }}>
-                    Eight years in product design,
+                    What began as a freelance graphic design journey,
                   </span>{" "}
-                  building digital experiences across banking, fitness,
-                  streaming, food tech, healthcare and e-commerce.
+                  soon evolved into a passion for product design. Driven by curiosity and a desire to solve meaningful problems, I progressed from small client projects to designing complex digital products, refining my craft and building a strong foundation in user-centered design along the way.
                 </p>
 
                 <p className="mb-[clamp(18px,1.5vw,28px)]">
                   <span style={{ color: colors.heading }}>
-                    My process is research-first.
+                    over the years,
                   </span>{" "}
-                  I want to understand why users behave the way they do before I open Figma.
+                  I've worked on products across rental marketplaces, fintech, healthcare, e-commerce and AI-driven experiences, refining my ability to transform complex challenges into intuitive, user-centered solutions. 
                 </p>
 
                 <p className="mb-[clamp(18px,1.5vw,28px)]">
                   <span style={{ color: colors.heading }}>
-                    I own the full design scope,
+                    Today,
                   </span>{" "}
-                  from early research to shipped components, with decisions debated properly instead of handed down.
+                  I focus on designing products that balance business goals with usability, creating digital experiences that are simple, scalable and meaningful.
                 </p>
 
-                <p>
-                  Delhi raised, Ontario based — designing interfaces that feel clear, useful and calm.
-                </p>
               </div>
 
               <div className="mt-[clamp(34px,2.8vw,54px)]">

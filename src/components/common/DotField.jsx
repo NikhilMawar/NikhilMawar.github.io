@@ -77,7 +77,7 @@ export default function DotField({ theme = "light" }) {
           opacity: dotOpacity,
 
           backgroundImage:
-            "radial-gradient(circle, currentColor 1px, transparent 1px)",
+            "radial-gradient(circle, currentColor 1.5px, transparent 1.5px)",
 
           backgroundSize: "16px 16px",
 
