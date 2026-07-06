@@ -5,6 +5,11 @@ import { themeColors } from "../../utils/theme";
 export default function PrivacyModal({ theme = "light", isOpen, onClose }) {
   const colors = themeColors[theme];
 
+  const overlayColor =
+  theme === "light"
+    ? "rgba(15, 15, 14, 0.10)"      // Dark theme bg @ 10%
+    : "rgba(239, 236, 228, 0.10)";
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -26,7 +31,7 @@ export default function PrivacyModal({ theme = "light", isOpen, onClose }) {
     <div className="fixed inset-0 z-[99999] flex items-center justify-center px-[20px]">
       <div
         className="absolute inset-0 z-[0] backdrop-blur-[12px]"
-        style={{ backgroundColor: "rgba(0,0,0,0.18)" }}
+        style={{ backgroundColor: overlayColor }}
         onClick={onClose}
       />
 
