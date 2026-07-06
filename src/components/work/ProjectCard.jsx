@@ -58,7 +58,7 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
 
         <div className="mt-[clamp(42px,3vw,60px)]">
           <h3
-            className="text-[clamp(36px,3.125vw,60px)] font-semibold leading-[0.95] tracking-[-0.04em]"
+            className="font-['Syne'] font-bold text-[clamp(36px,3.125vw,60px)]   leading-[0.95] tracking-[-0.04em]"
             style={{ color: colors.heading }}
           >
             {project.title}

@@ -87,6 +87,8 @@ function TickerItem() {
     >
       <span>UI UX DESIGN</span>
       <span>✦</span>
+      <span>NIKHIL MAWAR</span>
+      <span>✦</span>
     </div>
   );
 }

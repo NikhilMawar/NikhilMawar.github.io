@@ -7,6 +7,7 @@ import GlobeFlight from "./components/about/GlobeFlight";
 import About from "./sections/About";
 import { themeColors } from "./utils/theme";
 import Process from "./sections/Process";
+import Contact from "./sections/Contact";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -55,6 +56,10 @@ function App() {
         <About theme={theme} />
 
         <Process theme={theme} />
+
+        <Contact theme={theme} />
+
+        
 
         <PortraitTest theme={theme} className="mx-auto max-w-[420px]" />
 

@@ -67,9 +67,9 @@ export default function Process({ theme = "light" }) {
       }}
     >
 
-        <DotField theme={theme} className="absolute top-0 left-0 z-[1]" />
+      <DotField theme={theme} className="absolute top-0 left-0" />
 
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <div className=" mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(95px,6.8vw,130px)]">
           <p
             className="mb-[clamp(12px,1vw,18px)] text-[clamp(12px,0.83vw,16px)] font-medium uppercase tracking-[0.02em]"
@@ -193,7 +193,7 @@ export default function Process({ theme = "light" }) {
             </div>
 
             {/* Right */}
-            <div className="col-span-12 mt-[60px] flex justify-end lg:col-span-5 lg:mt-0 z-[2]">
+            <div className="col-span-12 mt-[60px] flex justify-end lg:col-span-5 lg:mt-0">
               <ProcessPhoto theme={theme} />
             </div>
           </div>
