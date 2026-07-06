@@ -51,3 +51,20 @@ body {
 .contact-field:focus-within {
   border-color: var(--active) !important;
 }
+
+
+/* Footer  Privacy Policy */
+
+.modal-scroll {
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE */
+  -ms-overflow-style: none;
+}
+
+.modal-scroll::-webkit-scrollbar {
+  display: none;
+}

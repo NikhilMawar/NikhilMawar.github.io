@@ -9,7 +9,7 @@ import HeroTicker from "../components/hero/HeroTicker";
 import HeroName from "../components/hero/HeroName";
 import DotField from "../components/common/DotField";
 
-export default function Hero({ startAnimation = false, theme = "light", onThemeToggle }) {
+export default function Hero({ startAnimation = false, theme = "light", onThemeToggle, hideChrome = false }) {
   const colors = themeColors[theme];
   return (
     <section
@@ -21,7 +21,9 @@ export default function Hero({ startAnimation = false, theme = "light", onThemeT
     >
 
       <DotField theme={theme} />
-
+      
+      {!hideChrome && (
+        <>
       <Navbar startAnimation={startAnimation} 
       theme={theme}/> 
       <ScrollIndicator startAnimation={startAnimation} 
@@ -34,6 +36,8 @@ export default function Hero({ startAnimation = false, theme = "light", onThemeT
         onToggle={onThemeToggle}
         startAnimation={startAnimation}
       />
+      </>
+      )}
       
 
       <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)]">

@@ -8,6 +8,7 @@ import About from "./sections/About";
 import { themeColors } from "./utils/theme";
 import Process from "./sections/Process";
 import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -38,6 +39,8 @@ function App() {
 
   const colors = themeColors[theme];
 
+  const [overlayOpen, setOverlayOpen] = useState(false);
+
   return (
     <main
       className="relative isolate min-h-screen"
@@ -49,6 +52,7 @@ function App() {
           startAnimation={heroReady}
           theme={theme}
           onThemeToggle={toggleTheme}
+          hideChrome={overlayOpen}
         />
 
         <Work theme={theme} />
@@ -59,13 +63,15 @@ function App() {
 
         <Contact theme={theme} />
 
+        <Footer theme={theme} setOverlayOpen={setOverlayOpen} />
+
         
 
-        <PortraitTest theme={theme} className="mx-auto max-w-[420px]" />
+        {/*<PortraitTest theme={theme} className="mx-auto max-w-[420px]" />
 
         <div className="relative z-[3] flex min-h-screen items-center justify-center">
           <GlobeFlight theme={theme} />
-        </div>
+        </div>*/}
       </div>
 
       {loading && <Preloader theme={theme} />}

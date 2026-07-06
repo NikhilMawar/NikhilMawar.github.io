@@ -62,7 +62,7 @@ export default function Contact({ theme = "light" }) {
           <div className="col-span-12 lg:col-span-6">
             <p
               className="max-w-[820px] font-['Inter'] text-[clamp(16px,1.04vw,20px)] leading-[1.18] tracking-[-0.02em]"
-              style={{ color: colors.heading }}
+              style={{ color: colors.subtext }}
             >
               You have come to the right place. If you value close
               collaboration, clear communication and full transparency, I would
