@@ -86,7 +86,7 @@ export default function Process({ theme = "light" }) {
           </h2>
 
           <div
-            className="mt-[clamp(22px,1.8vw,34px)] h-px w-full"
+            className="mt-[clamp(12px,1.05vw,20px)] h-px w-full"
             style={{ backgroundColor: colors.tertiary }}
           />
 

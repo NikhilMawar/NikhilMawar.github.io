@@ -59,7 +59,7 @@ export default function Navbar({ startAnimation = false, theme = "light" }) {
             className="
               relative flex items-center justify-between
               rounded-full border
-              backdrop-blur-[28px]
+              backdrop-blur-[80px]
               overflow-visible
               supports-[backdrop-filter]:bg-white/20
             "
