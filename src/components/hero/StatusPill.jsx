@@ -32,7 +32,7 @@ export default function StatusPill({
           textColor ??
           (active ? colors.green : colors.subtext),
 
-        backgroundColor: colors.bg, 
+        backgroundColor: backgroundColor ?? "transparent", 
           /*backgroundColor ?? "transparent",*/
           
       }}

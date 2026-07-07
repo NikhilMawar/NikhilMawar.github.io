@@ -10,7 +10,7 @@ import {
 import { themeColors } from "../utils/theme";
 import ProcessStep from "../components/process/ProcessStep";
 import ProcessPhoto from "../components/process/ProcessPhoto";
-import DotField from "../components/common/DotField";
+{/*import DotField from "../components/common/DotField";*/}
 
 const steps = [
   {
@@ -67,7 +67,7 @@ export default function Process({ theme = "light" }) {
       }}
     >
 
-      <DotField theme={theme} className="absolute top-0 left-0" />
+      {/*<DotField theme={theme} className="absolute top-0 left-0" />*/}
 
       <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <div className=" mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(95px,6.8vw,130px)]">

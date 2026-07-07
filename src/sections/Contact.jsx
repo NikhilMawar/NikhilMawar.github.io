@@ -6,6 +6,9 @@ import MaskedLink from "../components/contact/MaskedLink";
 import ContactForm from "../components/contact/ContactForm";
 import DinoGame from "../components/contact/DinoGame";
 import HeroTicker from "../components/hero/HeroTicker";
+{/*import DotField from "../components/common/DotField";*/}
+
+
 
 const email = "nikhilmawar0@gmail.com";
 
@@ -37,6 +40,9 @@ export default function Contact({ theme = "light" }) {
         color: colors.heading,
       }}
     >
+
+      {/*<DotField theme={theme} />*/}
+
       <div className="sticky top-0 h-screen overflow-hidden">
       <div className="mx-auto w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(95px,6.8vw,130px)]">
         <p

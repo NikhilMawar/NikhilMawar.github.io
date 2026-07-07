@@ -25,7 +25,7 @@ export default function Button({
       style={{
         borderColor: colors.tertiary,
         color: colors.subtext,
-        backgroundColor: "transparent",
+        backgroundColor: colors.bg,
       }}
       variants={{
         rest: {

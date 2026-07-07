@@ -7,7 +7,7 @@ import ThemeToggle from "../components/hero/ThemeToggle";
 import { themeColors } from "../utils/theme";
 import HeroTicker from "../components/hero/HeroTicker";
 import HeroName from "../components/hero/HeroName";
-import DotField from "../components/common/DotField";
+{/*import DotField from "../components/common/DotField";*/}
 
 export default function Hero({ startAnimation = false, theme = "light", onThemeToggle, hideChrome = false }) {
   const colors = themeColors[theme];
@@ -20,7 +20,7 @@ export default function Hero({ startAnimation = false, theme = "light", onThemeT
       }}
     >
 
-      <DotField theme={theme} />
+      {/*<DotField theme={theme} />*/}
       
       {!hideChrome && (
         <>

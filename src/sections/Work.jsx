@@ -5,7 +5,7 @@ import ProjectCard from "../components/work/ProjectCard";
 import aroRentImage from "../assets/images/arorent-placeholder.png";
 import project2Image from "../assets/images/project2-placeholder.png";
 import project3Image from "../assets/images/project3-placeholder.png";
-import DotField from "../components/common/DotField";
+{/*import DotField from "../components/common/DotField";*/}
 
 const projects = [
   {
@@ -55,7 +55,7 @@ export default function Work({ theme = "light" }) {
       /*style={{ backgroundColor: colors.bg }}*/
     >
       
-      <DotField theme={theme} />
+      {/*<DotField theme={theme} />*/}
 
       <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">

@@ -21,7 +21,7 @@ export default function ProcessStep({
 
   const textColor = useTransform(colorProgress, [0, 1], [
     colors.tertiary,
-    colors.heading,
+    "#7D607D",
   ]);
 
   const bodyColor = useTransform(colorProgress, [0, 1], [
@@ -32,13 +32,14 @@ export default function ProcessStep({
   const borderColor = useTransform(colorProgress, [0, 1], [
     colors.tertiary,
     colors.heading,
+    /*"#7D607D",*/
   ]);
 
   return (
     <motion.div className="min-w-0">
       <motion.p
         className="mb-[10px] font-['Inter'] text-[clamp(13px,0.9vw,17px)] font-semibold leading-none"
-        style={{ color: textColor }}
+        style={{ color: borderColor }}
       >
         {String(index + 1).padStart(2, "0")}
       </motion.p>
@@ -51,7 +52,7 @@ export default function ProcessStep({
           items-center justify-center
           rounded-[12px] border-[2px]
         "
-        style={{ borderColor, color: textColor,}}
+        style={{ borderColor, color: borderColor,}}
       >
         <step.Icon size={18} strokeWidth={2}/>
       </motion.div>

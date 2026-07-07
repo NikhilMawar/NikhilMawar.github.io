@@ -94,9 +94,9 @@ export default function AboutStack({ groups, theme = "light", progress }) {
                 <StatusPill
                   key={skill}
                   theme={theme}
-                  borderColor={colors.tertiary}
-                  textColor={colors.subtext}
-                  backgroundColor="transparent"
+                  borderColor="#A97213"
+                  textColor="#A97213"
+                  backgroundColor="#A9721308"
                 >
                   {skill}
                 </StatusPill>
