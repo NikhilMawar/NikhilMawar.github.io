@@ -6,8 +6,6 @@ import aroRentImage from "../assets/images/arorent-placeholder.png";
 import project2Image from "../assets/images/project2-placeholder.png";
 import project3Image from "../assets/images/project3-placeholder.png";
 import SectionReveal from "../components/common/SectionReveal";
-import { Section } from "lucide-react";
-{/*import DotField from "../components/common/DotField";*/}
 
 const projects = [
   {
@@ -19,24 +17,23 @@ const projects = [
     pills: ["UX Research", "Product Design", "Mobile App"],
     accentColor: "#F95019",
   },
-
   {
     title: "Project Two",
     label: "Fintech Dashboard",
     description:
       "A clean financial interface exploring hierarchy, motion and responsive dashboard systems.",
-      image: project2Image,
-      pills: ["UX Researchs", "Product Designs", "Mobile Apps"],
-      accentColor: "#168A45",
+    image: project2Image,
+    pills: ["UX Researchs", "Product Designs", "Mobile Apps"],
+    accentColor: "#168A45",
   },
   {
     title: "Project Three",
     label: "Streaming Experience",
     description:
       "An identity verification system for web3 applications that combines biometrics and social proof to authenticate real users and prevent bot manipulation across decentralised platforms. Currently powering 10+ web3 brands.",
-      image: project3Image,
-      pills: ["UX Researchss", "Product Designss", "Mobile Appss"],
-      accentColor: "#6D5DF6",
+    image: project3Image,
+    pills: ["UX Researchss", "Product Designss", "Mobile Appss"],
+    accentColor: "#6D5DF6",
   },
 ];
 
@@ -50,63 +47,55 @@ export default function Work({ theme = "light" }) {
   });
 
   return (
-    
-    <section
-      id="work"
-      ref={sectionRef}
-      className="relative h-[400vh]"
-      /*style={{ backgroundColor: colors.bg }}*/
-    >
-      
-      {/*<DotField theme={theme} />*/}
-      <SectionReveal blur={8}>
+    <section id="work" ref={sectionRef} className="relative h-[400vh]">
       <div className="sticky top-0 z-[2] h-screen overflow-hidden">
-        <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">
-          <div className="col-span-12">
-            <p
-              className="mb-[clamp(12px,1vw,18px)]
-                          text-[clamp(12px,0.83vw,16px)]
-                          font-medium
-                          uppercase
-                          tracking-[0.02em]"
-              style={{ color: colors.subtext }}
-            >
-              Selected
-            </p>
+        <SectionReveal blur={8} className="h-full">
+          <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">
+            <div className="col-span-12">
+              <p
+                className="mb-[clamp(12px,1vw,18px)]
+                            text-[clamp(12px,0.83vw,16px)]
+                            font-medium
+                            uppercase
+                            tracking-[0.02em]"
+                style={{ color: colors.subtext }}
+              >
+                Selected
+              </p>
 
-            <h2
-              className="
-                font-['Syne']
-                text-[clamp(60px,6vw,120px)]
-                font-extrabold
-                leading-[0.9]
-                tracking-[-0.06em]
-              "
-              style={{ color: colors.heading }}
-            >
-              Work
-            </h2>
+              <h2
+                className="
+                  font-['Syne']
+                  text-[clamp(60px,6vw,120px)]
+                  font-extrabold
+                  leading-[0.9]
+                  tracking-[-0.06em]
+                "
+                style={{ color: colors.heading }}
+              >
+                Work
+              </h2>
 
-            <div
-              className="mt-[clamp(12px,1.05vw,20px)] h-px w-full"
-              style={{ backgroundColor: colors.tertiary }}
-            />
-          </div>
-
-          <div className="relative col-span-12 mt-[24px] h-[400px]">
-            {projects.map((project, index) => (
-              <StackedProjectCard
-                key={project.title}
-                project={project}
-                index={index}
-                progress={scrollYProgress}
-                theme={theme}
+              <div
+                className="mt-[clamp(12px,1.05vw,20px)] h-px w-full"
+                style={{ backgroundColor: colors.tertiary }}
               />
-            ))}
+            </div>
+
+            <div className="relative col-span-12 mt-[24px] h-[400px]">
+              {projects.map((project, index) => (
+                <StackedProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index}
+                  progress={scrollYProgress}
+                  theme={theme}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </SectionReveal>
       </div>
-      </SectionReveal>
     </section>
   );
 }
