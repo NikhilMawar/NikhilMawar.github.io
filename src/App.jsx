@@ -10,6 +10,7 @@ import Process from "./sections/Process";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import CustomCursor from "./components/common/CustomCursor";
+import SectionSnapController from "./components/common/SectionSnapController";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,8 @@ function App() {
       className="relative isolate min-h-screen"
       style={{ backgroundColor: colors.bg }}
     > 
-
+      <SectionSnapController />
+      
       <CustomCursor theme={theme} />
 
       <div className="relative z-[2]">

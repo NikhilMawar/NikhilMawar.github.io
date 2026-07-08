@@ -16,6 +16,7 @@ export default function MaskedLink({
 
   return (
     <motion.a
+      data-cursor="link"
       href={href}
       target={target}
       rel={target === "_blank" ? "noreferrer" : undefined}

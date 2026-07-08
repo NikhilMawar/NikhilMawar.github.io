@@ -27,6 +27,7 @@ export default function ContactForm({ theme = "light" }) {
           <div className="contact-field border-b" style={fieldStyle}>
             <input
               type="text"
+              data-cursor="type"
               placeholder="Enter your name"
               className={inputBase}
               style={{ color: colors.heading }}
@@ -45,6 +46,7 @@ export default function ContactForm({ theme = "light" }) {
           <div className="contact-field border-b" style={fieldStyle}>
             <input
               type="email"
+              data-cursor="type"
               placeholder="Enter your email"
               className={inputBase}
               style={{ color: colors.heading }}
@@ -62,6 +64,7 @@ export default function ContactForm({ theme = "light" }) {
 
           <div className="contact-field border-b" style={fieldStyle}>
             <textarea
+              data-cursor="type"
               placeholder="Tell me about your project"
               rows={1}
               className={`${inputBase} resize-none`}

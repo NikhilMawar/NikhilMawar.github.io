@@ -73,11 +73,11 @@ body {
 /* Custom Cursor css */
 
 @media (hover: hover) and (pointer: fine) {
-  html,
-  body,
-  a,
-  button {
-    cursor: none;
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
   }
 
   .custom-cursor-ring {
@@ -87,8 +87,8 @@ body {
     z-index: 999999;
     pointer-events: none;
 
-    margin-left: -23px;
-    margin-top: -23px;
+    /*margin-left: -23px;
+    margin-top: -23px;*/
 
     border: 1.25px solid;
     border-radius: 999px;
@@ -102,8 +102,8 @@ body {
     z-index: 1000000;
     pointer-events: none;
 
-    margin-left: -17px;
-    margin-top: -17px;
+    /*margin-left: -17px;
+    margin-top: -17px;*/
 
     display: flex;
     align-items: center;
@@ -139,7 +139,7 @@ body {
     letter-spacing: 0.04em;
     line-height: 1;
   }
-}
+
 
 @media (hover: none), (pointer: coarse) {
   .custom-cursor-ring,

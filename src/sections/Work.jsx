@@ -5,6 +5,8 @@ import ProjectCard from "../components/work/ProjectCard";
 import aroRentImage from "../assets/images/arorent-placeholder.png";
 import project2Image from "../assets/images/project2-placeholder.png";
 import project3Image from "../assets/images/project3-placeholder.png";
+import SectionReveal from "../components/common/SectionReveal";
+import { Section } from "lucide-react";
 {/*import DotField from "../components/common/DotField";*/}
 
 const projects = [
@@ -48,6 +50,7 @@ export default function Work({ theme = "light" }) {
   });
 
   return (
+    
     <section
       id="work"
       ref={sectionRef}
@@ -56,7 +59,7 @@ export default function Work({ theme = "light" }) {
     >
       
       {/*<DotField theme={theme} />*/}
-
+      <SectionReveal blur={8}>
       <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">
           <div className="col-span-12">
@@ -103,6 +106,7 @@ export default function Work({ theme = "light" }) {
           </div>
         </div>
       </div>
+      </SectionReveal>
     </section>
   );
 }

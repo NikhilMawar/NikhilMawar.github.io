@@ -9,29 +9,11 @@ export default function CustomCursor({ theme = "light" }) {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  const ringX = useSpring(mouseX, {
-    stiffness: 90,
-    damping: 18,
-    mass: 0.9,
-  });
+  const ringX = useSpring(mouseX, { stiffness: 80, damping: 18, mass: 0.9 });
+  const ringY = useSpring(mouseY, { stiffness: 80, damping: 18, mass: 0.9 });
 
-  const ringY = useSpring(mouseY, {
-    stiffness: 90,
-    damping: 18,
-    mass: 0.9,
-  });
-
-  const dotX = useSpring(mouseX, {
-    stiffness: 800,
-    damping: 45,
-    mass: 0.18,
-  });
-
-  const dotY = useSpring(mouseY, {
-    stiffness: 800,
-    damping: 45,
-    mass: 0.18,
-  });
+  const dotX = useSpring(mouseX, { stiffness: 800, damping: 45, mass: 0.18 });
+  const dotY = useSpring(mouseY, { stiffness: 800, damping: 45, mass: 0.18 });
 
   const [cursorType, setCursorType] = useState("default");
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +24,19 @@ export default function CustomCursor({ theme = "light" }) {
       mouseY.set(event.clientY);
       setIsVisible(true);
 
-      const target = event.target.closest("[data-cursor]");
+      const element = event.target;
+
+      const isTypingField =
+        element.closest("input") ||
+        element.closest("textarea") ||
+        element.closest("[contenteditable='true']");
+
+      if (isTypingField) {
+        setCursorType("type");
+        return;
+      }
+
+      const target = element.closest("[data-cursor]");
       setCursorType(target?.dataset.cursor || "default");
     };
 
@@ -62,49 +56,53 @@ export default function CustomCursor({ theme = "light" }) {
 
   const isProject = cursorType === "project";
   const isLink = cursorType === "link";
+  const isType = cursorType === "type";
+  const isPill = isProject || isType;
 
   return (
     <>
       <motion.div
         className="custom-cursor-ring"
         style={{
-          x: ringX,
-          y: ringY,
-          opacity: isVisible && !isProject ? 1 : 0,
+          left: ringX,
+          top: ringY,
+          opacity: isVisible && !isPill ? 1 : 0,
           borderColor: isLink ? colors.heading : colors.subtext,
         }}
         animate={{
           width: isLink ? 64 : 46,
           height: isLink ? 64 : 46,
-        }}
-        transition={{
-          duration: 0.28,
-          ease: [0.22, 1, 0.36, 1],
+          x: "-50%",
+          y: "-50%",
         }}
       />
 
       <motion.div
         className="custom-cursor-main"
         style={{
-          x: dotX,
-          y: dotY,
+          left: dotX,
+          top: dotY,
           opacity: isVisible ? 1 : 0,
           backgroundColor: colors.heading,
           color: colors.bg,
         }}
         animate={{
-          width: isProject ? 62 : 34,
-          height: isProject ? 28 : 34,
+          width: isPill ? 62 : 34,
+          height: isPill ? 28 : 34,
           borderRadius: 999,
+          x: "-50%",
+          y: "-50%",
         }}
         transition={{
           duration: 0.24,
           ease: [0.22, 1, 0.36, 1],
         }}
       >
-        {isProject ? (
-          <span className="custom-cursor-label">VIEW</span>
-        ) : (
+        {isProject && <span className="custom-cursor-label">VIEW</span>}
+
+        {isType && <span className="custom-cursor-label">TYPE</span>}
+
+        {!isPill && (
           <motion.div
             className="custom-cursor-logo"
             animate={{ rotate: 360 }}

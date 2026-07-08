@@ -12,6 +12,7 @@ export default function Button({
 
   return (
     <motion.a
+      data-cursor="link"
       href={href}
       target={target}
       rel={target === "_blank" ? "noreferrer" : undefined}

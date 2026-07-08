@@ -9,6 +9,7 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
 
   return (
     <motion.article
+      data-cursor="project"
       className="
         relative z-[3]
         group mx-auto grid h-[400px] w-full max-w-[1820px]
