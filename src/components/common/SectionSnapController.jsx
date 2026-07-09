@@ -2,6 +2,10 @@ import { useEffect, useRef } from "react";
 
 const SECTION_IDS = ["hero", "work", "about", "process", "contact", "footer"];
 
+const NEXT_THRESHOLD = 0.82;
+const PREV_THRESHOLD = 0.02;
+const SNAP_LOCK_MS = 1250;
+
 export default function SectionSnapController() {
   const isSnappingRef = useRef(false);
   const lastSnapTimeRef = useRef(0);
@@ -32,11 +36,11 @@ export default function SectionSnapController() {
 
       window.setTimeout(() => {
         isSnappingRef.current = false;
-      }, 1200);
+      }, SNAP_LOCK_MS);
     };
 
     const getCurrentSectionIndex = (sections) => {
-      const viewportMiddle = window.scrollY + window.innerHeight / 2;
+      const y = window.scrollY + 2;
 
       let currentIndex = 0;
 
@@ -44,7 +48,7 @@ export default function SectionSnapController() {
         const start = section.offsetTop;
         const end = start + section.offsetHeight;
 
-        if (viewportMiddle >= start && viewportMiddle < end) {
+        if (y >= start && y < end) {
           currentIndex = index;
         }
       });
@@ -69,7 +73,7 @@ export default function SectionSnapController() {
 
       const now = Date.now();
 
-      if (isSnappingRef.current || now - lastSnapTimeRef.current < 900) {
+      if (isSnappingRef.current || now - lastSnapTimeRef.current < SNAP_LOCK_MS) {
         event.preventDefault();
         return;
       }
@@ -87,31 +91,35 @@ export default function SectionSnapController() {
       const viewportHeight = window.innerHeight;
       const maxInternalScroll = sectionHeight - viewportHeight;
 
-      const progress =
+      const rawProgress =
         maxInternalScroll <= 0
           ? 1
           : (window.scrollY - sectionStart) / maxInternalScroll;
+
+      const progress = Math.max(0, Math.min(1, rawProgress));
 
       const isLongSection = sectionHeight > viewportHeight * 1.4;
 
       const canGoNext =
         direction === 1 &&
         currentIndex < sections.length - 1 &&
-        (!isLongSection || progress >= 0.92);
+        (!isLongSection || progress >= NEXT_THRESHOLD);
 
       const canGoPrev =
         direction === -1 &&
         currentIndex > 0 &&
-        (!isLongSection || progress <= 0.08);
+        (!isLongSection || progress <= PREV_THRESHOLD);
 
       if (canGoNext) {
         event.preventDefault();
         scrollToSection(sections[currentIndex + 1]);
+        return;
       }
 
       if (canGoPrev) {
         event.preventDefault();
         scrollToSection(sections[currentIndex - 1]);
+        return;
       }
     };
 

@@ -7,21 +7,30 @@ export default function Button({
   href = "#",
   theme = "light",
   target = "_self",
+  as = "a",
+  type = "button",
+  disabled = false,
+  onClick,
 }) {
   const colors = themeColors[theme];
+  const MotionTag = as === "button" ? motion.button : motion.a;
 
   return (
-    <motion.a
+    <MotionTag
       data-cursor="link"
-      href={href}
-      target={target}
-      rel={target === "_blank" ? "noreferrer" : undefined}
+      href={as === "a" ? href : undefined}
+      target={as === "a" ? target : undefined}
+      rel={as === "a" && target === "_blank" ? "noreferrer" : undefined}
+      type={as === "button" ? type : undefined}
+      disabled={disabled}
+      onClick={onClick}
       className="
         group inline-flex h-[clamp(34px,2vw,40px)]
         w-fit items-center justify-center
         rounded-full border px-[clamp(16px,1.2vw,24px)]
         text-[clamp(12px,0.83vw,16px)]
         font-medium uppercase leading-none
+        disabled:pointer-events-none disabled:opacity-60
       "
       style={{
         borderColor: colors.tertiary,
@@ -42,11 +51,8 @@ export default function Button({
       }}
       initial="rest"
       animate="rest"
-      whileHover="hover"
-      transition={{
-        duration: 0.3,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      whileHover={disabled ? "rest" : "hover"}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
     >
       <span>{children}</span>
 
@@ -56,14 +62,10 @@ export default function Button({
           rest: { x: 0, y: 0 },
           hover: { x: 5, y: 0 },
         }}
-        transition={{
-          type: "spring",
-          stiffness: 420,
-          damping: 20,
-        }}
+        transition={{ type: "spring", stiffness: 420, damping: 20 }}
       >
         <ArrowIcon className="h-full w-full" />
       </motion.span>
-    </motion.a>
+    </MotionTag>
   );
 }

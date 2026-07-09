@@ -19,7 +19,7 @@ export default function SectionReveal({
         filter: "blur(0px)",
       }}
       viewport={{
-        once: false,
+        once: true,
         amount,
       }}
       transition={{

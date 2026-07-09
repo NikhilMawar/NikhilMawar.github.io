@@ -64,13 +64,14 @@ export default function Navbar({ startAnimation = false, theme = "light" }) {
               supports-[backdrop-filter]:bg-white/20
             "
           >
-            <a href="#" aria-label="Home" className="flex items-center" style={{ color: colors.heading }}>
+            <a data-cursor="link" href="#" aria-label="Home" className="flex items-center" style={{ color: colors.heading }}>
               <Logo className="h-[clamp(22px,1.56vw,30px)] w-auto" />
             </a>
 
-            <div className="flex items-center gap-[clamp(22px,1.75vw,34px)]">
+            <div  className="flex items-center gap-[clamp(22px,1.75vw,34px)]">
               {navItems.map((item) => (
                 <a
+                  data-cursor="link"
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="
