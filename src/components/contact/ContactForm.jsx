@@ -36,7 +36,9 @@ export default function ContactForm({ theme = "light" }) {
 
       const result = await response.json();
 
-      if (result.success) {
+      /*console.log(result);*/
+
+      if (result.success === true) {
         setStatus("sent");
         event.currentTarget.reset();
       } else {
@@ -114,7 +116,7 @@ export default function ContactForm({ theme = "light" }) {
         </label>
       </div>
 
-      <div className="mt-[clamp(28px,2.4vw,46px)]">
+      <div className="mt-[clamp(28px,2.4vw,46px)] flex items-center gap-[16px]">
         <Button
           as="button"
           type="submit"
@@ -123,17 +125,19 @@ export default function ContactForm({ theme = "light" }) {
         >
           {status === "sending" ? "Sending" : "Submit"}
         </Button>
-      </div>
 
-      {status !== "idle" && (
-        <p
-          className="mt-[16px] font-['Inter'] text-[14px]"
-          style={{ color: status === "error" ? colors.accent : colors.subtext }}
-        >
-          {status === "sent" && "Message sent. I’ll get back to you soon."}
-          {status === "error" && "Something went wrong. Please email me directly."}
-        </p>
-      )}
+        {status !== "idle" && (
+          <p
+            className="font-['Inter'] text-[14px] leading-none"
+            style={{
+              color: status === "error" ? colors.accent : colors.subtext,
+            }}
+          >
+            {status === "sent" && "Message sent."}
+            {status === "error" && "Something went wrong."}
+          </p>
+        )}
+      </div>
     </form>
   );
 }
