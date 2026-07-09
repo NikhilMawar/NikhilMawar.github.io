@@ -2,43 +2,41 @@ import { motion } from "framer-motion";
 import { themeColors } from "../../utils/theme";
 import StatusPill from "../hero/StatusPill";
 import ArrowButton from "../work/ArrowButton";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion(Link);
 
 
 export default function ProjectCard({ project, theme = "light", index = 0 }) {
   const colors = themeColors[theme];
 
   return (
-    <motion.article
-      data-cursor="project"
-      className="
-        relative z-[3]
-        group mx-auto grid h-[400px] w-full max-w-[1820px]
-        grid-cols-12 overflow-hidden rounded-[clamp(34px,1.5vw,44px)]
-        border-[2px]
-      "
-      style={{
-        backgroundColor: colors.bg,
-        color: colors.heading,
-      }}
-
-      variants={{
-        rest: {
-          borderColor: colors.tertiary,
-        },
-        hover: {
-          borderColor: theme === "dark" ? "#949490" : "#5D5C59",
-        },
-      }}
-
-      transition={{
-        duration: 0.35,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-
-      whileHover="hover"
-      initial="rest"
-      animate="rest"
-    >
+    <MotionLink
+        to={`/work/${project.slug}`}
+        data-cursor="project"
+        className="
+          relative z-[3]
+          group mx-auto grid h-[400px] w-full max-w-[1820px]
+          grid-cols-12 overflow-hidden rounded-[clamp(34px,1.5vw,44px)]
+          border-[2px]
+          no-underline
+        "
+        style={{
+          backgroundColor: colors.bg,
+          color: colors.heading,
+        }}
+        variants={{
+          rest: { borderColor: colors.tertiary },
+          hover: { borderColor: theme === "dark" ? "#949490" : "#5D5C59" },
+        }}
+        transition={{
+          duration: 0.35,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+      >
       {/* Left Content */}
       <div
         className="
@@ -108,6 +106,6 @@ export default function ProjectCard({ project, theme = "light", index = 0 }) {
         {/* Arrow Button */}
         <ArrowButton />
       </div>
-    </motion.article>
+    </MotionLink>
   );
 }

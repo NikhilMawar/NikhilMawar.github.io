@@ -9,6 +9,7 @@ import SectionReveal from "../components/common/SectionReveal";
 
 const projects = [
   {
+    slug: "arorent",
     title: "AroRent",
     label: "Peer-to-Peer Goods Rental App",
     description:
@@ -18,6 +19,7 @@ const projects = [
     accentColor: "#F95019",
   },
   {
+    slug: "kaimo",
     title: "Project Two",
     label: "Fintech Dashboard",
     description:
@@ -27,6 +29,7 @@ const projects = [
     accentColor: "#168A45",
   },
   {
+    slug: "zetacars",
     title: "Project Three",
     label: "Streaming Experience",
     description:

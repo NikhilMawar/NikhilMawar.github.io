@@ -1,21 +1,44 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
 import Preloader from "./components/preloader/Preloader";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
-import PortraitTest from "./components/about/PortraitTest";
-import GlobeFlight from "./components/about/GlobeFlight";
 import About from "./sections/About";
-import { themeColors } from "./utils/theme";
 import Process from "./sections/Process";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import CustomCursor from "./components/common/CustomCursor";
 import SectionSnapController from "./components/common/SectionSnapController";
+import ProjectDetail from "./pages/ProjectDetail";
+import { themeColors } from "./utils/theme";
+
+function HomePage({ theme, heroReady, toggleTheme, overlayOpen, setOverlayOpen }) {
+  return (
+    <>
+      <SectionSnapController />
+
+      <Hero
+        startAnimation={heroReady}
+        theme={theme}
+        onThemeToggle={toggleTheme}
+        hideChrome={overlayOpen}
+      />
+
+      <Work theme={theme} />
+      <About theme={theme} />
+      <Process theme={theme} />
+      <Contact theme={theme} />
+      <Footer theme={theme} setOverlayOpen={setOverlayOpen} />
+    </>
+  );
+}
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [heroReady, setHeroReady] = useState(false);
   const [theme, setTheme] = useState("light");
+  const [overlayOpen, setOverlayOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -41,42 +64,33 @@ function App() {
 
   const colors = themeColors[theme];
 
-  const [overlayOpen, setOverlayOpen] = useState(false);
-
   return (
     <main
       className="relative isolate min-h-screen"
       style={{ backgroundColor: colors.bg }}
-    > 
-      <SectionSnapController />
-      
+    >
       <CustomCursor theme={theme} />
 
       <div className="relative z-[2]">
-        <Hero
-          startAnimation={heroReady}
-          theme={theme}
-          onThemeToggle={toggleTheme}
-          hideChrome={overlayOpen}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                theme={theme}
+                heroReady={heroReady}
+                toggleTheme={toggleTheme}
+                overlayOpen={overlayOpen}
+                setOverlayOpen={setOverlayOpen}
+              />
+            }
+          />
 
-        <Work theme={theme} />
-
-        <About theme={theme} />
-
-        <Process theme={theme} />
-
-        <Contact theme={theme} />
-
-        <Footer theme={theme} setOverlayOpen={setOverlayOpen} />
-
-        
-
-        {/*<PortraitTest theme={theme} className="mx-auto max-w-[420px]" />
-
-        <div className="relative z-[3] flex min-h-screen items-center justify-center">
-          <GlobeFlight theme={theme} />
-        </div>*/}
+          <Route
+            path="/work/:slug"
+            element={<ProjectDetail theme={theme} />}
+          />
+        </Routes>
       </div>
 
       {loading && <Preloader theme={theme} />}

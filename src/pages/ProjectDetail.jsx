@@ -2,8 +2,10 @@ import { projects } from "../data/projects";
 import { themeColors } from "../utils/theme";
 import Button from "../components/common/Button";
 import StatusPill from "../components/hero/StatusPill";
+import { useParams } from "react-router-dom";
 
-export default function ProjectDetail({ theme = "light", slug = "arorent" }) {
+export default function ProjectDetail({ theme = "light" }) {
+  const { slug = "arorent" } = useParams();
   const colors = themeColors[theme];
   const project = projects.find((item) => item.slug === slug);
 
