@@ -8,25 +8,65 @@ export default function ContactForm({ theme = "light" }) {
   const colors = themeColors[theme];
   const [status, setStatus] = useState("idle");
 
+  const isSending = status === "sending";
+
   const inputBase =
-    "w-full bg-transparent pb-[14px] font-['Inter'] text-[clamp(14px,0.9vw,17px)] outline-none placeholder:opacity-45";
+    "w-full bg-transparent pb-[14px] font-['Inter'] text-[clamp(14px,0.9vw,17px)] outline-none placeholder:opacity-45 disabled:opacity-60";
 
   const fieldStyle = {
     borderColor: colors.tertiary,
     color: colors.heading,
     "--active": colors.heading,
+    "--field-bg": colors.bg,
+  };
+
+  const resetStatusLater = (delay = 3500) => {
+    setTimeout(() => {
+      setStatus("idle");
+    }, delay);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (status === "sending") return;
+    const form = event.currentTarget;
+
+    if (isSending) return;
 
     setStatus("sending");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
+
+    const name = formData.get("name")?.trim();
+    const email = formData.get("email")?.trim();
+    const message = formData.get("message")?.trim();
+
+    if (!name || !email || !message) {
+      setStatus("validation");
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setStatus("invalid-email");
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+
+      return;
+    }
+
     formData.append("access_key", ACCESS_KEY);
     formData.append("subject", "New portfolio message from nikhilmawar.github.io");
+    formData.append("from_name", "Portfolio Website");
+    formData.append("replyto", formData.get("email"));
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -36,21 +76,24 @@ export default function ContactForm({ theme = "light" }) {
 
       const result = await response.json();
 
-      /*console.log(result);*/
-
       if (result.success === true) {
         setStatus("sent");
-        event.currentTarget.reset();
+        form.reset();
+        resetStatusLater(3500);
       } else {
         setStatus("error");
+        resetStatusLater(4500);
       }
     } catch {
       setStatus("error");
+      resetStatusLater(4500);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form onSubmit={handleSubmit} noValidate className="w-full">
+      <input type="checkbox" name="botcheck" className="hidden" tabIndex="-1" />
+
       <div className="space-y-[clamp(14px,0.9vw,17px)]">
         <label className="block">
           <span
@@ -65,6 +108,7 @@ export default function ContactForm({ theme = "light" }) {
               name="name"
               type="text"
               required
+              disabled={isSending}
               data-cursor="type"
               placeholder="Enter your name"
               className={inputBase}
@@ -86,6 +130,7 @@ export default function ContactForm({ theme = "light" }) {
               name="email"
               type="email"
               required
+              disabled={isSending}
               data-cursor="type"
               placeholder="Enter your email"
               className={inputBase}
@@ -106,6 +151,7 @@ export default function ContactForm({ theme = "light" }) {
             <textarea
               name="message"
               required
+              disabled={isSending}
               data-cursor="type"
               placeholder="Tell me about your project"
               rows={1}
@@ -121,19 +167,27 @@ export default function ContactForm({ theme = "light" }) {
           as="button"
           type="submit"
           theme={theme}
-          disabled={status === "sending"}
+          disabled={isSending}
         >
-          {status === "sending" ? "Sending" : "Submit"}
+          {isSending ? "Sending" : "Submit"}
         </Button>
 
         {status !== "idle" && (
           <p
             className="font-['Inter'] text-[14px] leading-none"
             style={{
-              color: status === "error" ? colors.accent : colors.subtext,
+              color:
+                status === "sent"
+                  ? colors.green
+                  : status === "sending"
+                  ? colors.subtext
+                  : colors.accent
             }}
-          >
-            {status === "sent" && "Message sent."}
+          > 
+            {status === "sending" && "Sending..."}
+            {status === "validation" && "Please complete all fields."}
+            {status === "invalid-email" && "Invalid email address."}
+            {status === "sent" && "Message received. I’ll reach out soon."}
             {status === "error" && "Something went wrong."}
           </p>
         )}
