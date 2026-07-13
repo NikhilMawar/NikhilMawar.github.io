@@ -3,7 +3,7 @@ import arorentHero from "../assets/images/arorent-placeholder.png";
 import arorentPhoneR from "../assets/images/arorent-phone-R.png";
 import arorentPhoneL from "../assets/images/arorent-phone-L.png";
 import aroRentBrowse from "../assets/images/arorent/browse.png";
-import aroRentFilter from "../assets/images/arorent/filter.png";
+import aroRentFilter from "../assets/images/arorent/product-filter.png";
 import aroRentProduct from "../assets/images/arorent/product-details.png";
 import aroRentBooking from "../assets/images/arorent/booking.png";
 import aroRentPayment from "../assets/images/arorent/payment.png";
