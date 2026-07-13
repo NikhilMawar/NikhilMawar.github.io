@@ -357,12 +357,7 @@ export default function ProjectDetail({ theme = "light" }) {
             >
               {project.problem.map((item) => (
                 <li key={item} className="flex items-start gap-[10px]">
-                  <span
-                    className="mt-[0.55em] h-[4px] w-[4px] shrink-0 rounded-full"
-                    style={{ backgroundColor: colors.subtext }}
-                  />
-
-                  <span>{item}</span>
+                  <span>✦ {item}</span>
                 </li>
               ))}
             </ul>

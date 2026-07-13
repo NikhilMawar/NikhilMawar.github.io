@@ -48,7 +48,7 @@ export default function NextProjectCard({
           "
           style={{ color: project.accentColor ?? colors.accent }}
         >
-          • {project.label}
+          ✦ {project.label}
         </p>
 
         <h3
