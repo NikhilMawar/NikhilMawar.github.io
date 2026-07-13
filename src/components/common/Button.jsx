@@ -26,7 +26,8 @@ export default function Button({
       onClick={onClick}
       className="
         group inline-flex h-[clamp(34px,2vw,40px)]
-        w-fit items-center justify-center
+        w-fit shrink-0 items-center justify-center
+        whitespace-nowrap
         rounded-full border px-[clamp(16px,1.2vw,24px)]
         text-[clamp(12px,0.83vw,16px)]
         font-medium uppercase leading-none
@@ -54,10 +55,10 @@ export default function Button({
       whileHover={disabled ? "rest" : "hover"}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
     >
-      <span>{children}</span>
+      <span className="whitespace-nowrap">{children}</span>
 
       <motion.span
-        className="ml-[8px] inline-flex h-[12px] w-[12px]"
+        className="ml-[8px] inline-flex h-[12px] w-[12px] shrink-0"
         variants={{
           rest: { x: 0, y: 0 },
           hover: { x: 5, y: 0 },

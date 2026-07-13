@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes, 
+        Route,
+        useLocation,
+        useNavigate, } from "react-router-dom";
 
 import Preloader from "./components/preloader/Preloader";
 import Hero from "./sections/Hero";
@@ -13,7 +16,57 @@ import SectionSnapController from "./components/common/SectionSnapController";
 import ProjectDetail from "./pages/ProjectDetail";
 import { themeColors } from "./utils/theme";
 
-function HomePage({ theme, heroReady, toggleTheme, overlayOpen, setOverlayOpen }) {
+function HomePage({
+  theme,
+  heroReady,
+  toggleTheme,
+  overlayOpen,
+  setOverlayOpen,
+}) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const sectionId = location.state?.scrollTo;
+
+    if (!sectionId) return;
+
+    const scrollToRequestedSection = () => {
+      const section = document.getElementById(sectionId);
+
+      if (!section) return;
+
+      const targetTop = section.offsetTop;
+
+      if (window.lenis?.scrollTo) {
+        window.lenis.scrollTo(targetTop, {
+          immediate: true,
+          force: true,
+        });
+      } else {
+        window.scrollTo({
+          top: targetTop,
+          left: 0,
+          behavior: "instant",
+        });
+      }
+
+      // Clear the navigation instruction so it doesn't run again.
+      navigate("/", {
+        replace: true,
+        state: null,
+      });
+    };
+
+    const frameOne = requestAnimationFrame(() => {
+      const frameTwo = requestAnimationFrame(scrollToRequestedSection);
+
+      return () => cancelAnimationFrame(frameTwo);
+    });
+
+    return () => cancelAnimationFrame(frameOne);
+  }, [location.state, navigate]);
+
   return (
     <>
       <SectionSnapController />
