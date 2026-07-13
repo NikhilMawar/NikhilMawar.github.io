@@ -208,6 +208,11 @@ export default function ProjectDetail({ theme = "light" }) {
               })}
             </div>
 
+            <div
+              className="mt-[clamp(24px,1.8vw,34px)] h-px w-full"
+              style={{ backgroundColor: colors.tertiary }}
+            />
+
             <div className="mt-[24px] grid grid-cols-2 gap-[12px] sm:grid-cols-4">
               <div className="col-span-1">
                 <Button

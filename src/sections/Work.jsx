@@ -4,7 +4,7 @@ import { themeColors } from "../utils/theme";
 import ProjectCard from "../components/work/ProjectCard";
 import aroRentImage from "../assets/images/arorent-placeholder.png";
 import project2Image from "../assets/images/project2-placeholder.png";
-import project3Image from "../assets/images/project3-placeholder.png";
+import zetaHero from "../assets/images/zetaHero.png";
 import SectionReveal from "../components/common/SectionReveal";
 
 const projects = [
@@ -19,6 +19,16 @@ const projects = [
     accentColor: "#F95019",
   },
   {
+    slug: "zeta",
+    title: "Zeta Cars",
+    label: "Self-Drive Car Rental Platform",
+    description:
+      "A mobility experience focused on flexible booking, clear pricing and frictionless verification.",
+    image: zetaHero,
+    pills: ["UX Research", "UI Design", "Mobility"],
+    accentColor: "#6D5DF6",
+  },
+  {
     slug: "kaimo",
     title: "Project Two",
     label: "Fintech Dashboard",
@@ -28,16 +38,7 @@ const projects = [
     pills: ["UX Researchs", "Product Designs", "Mobile Apps"],
     accentColor: "#168A45",
   },
-  {
-    slug: "zetacars",
-    title: "Project Three",
-    label: "Streaming Experience",
-    description:
-      "An identity verification system for web3 applications that combines biometrics and social proof to authenticate real users and prevent bot manipulation across decentralised platforms. Currently powering 10+ web3 brands.",
-    image: project3Image,
-    pills: ["UX Researchss", "Product Designss", "Mobile Appss"],
-    accentColor: "#6D5DF6",
-  },
+  
 ];
 
 export default function Work({ theme = "light" }) {

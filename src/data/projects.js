@@ -9,6 +9,17 @@ import aroRentBooking from "../assets/images/arorent/booking.png";
 import aroRentPayment from "../assets/images/arorent/payment.png";
 import aroRentConfirmation from "../assets/images/arorent/confirmation.png";
 
+/* Zeta internal img */
+import zetaHero from "../assets/images/zetaHero.png";
+import zetaPhoneR from "../assets/images/zeta-phone-R.png";
+import zetaPhoneL from "../assets/images/zeta-phone-L.png";
+import zetaScreen01 from "../assets/images/zeta/zeta-screen-01.png";
+import zetaScreen02 from "../assets/images/zeta/zeta-screen-02.png";
+import zetaScreen03 from "../assets/images/zeta/zeta-screen-03.png";
+import zetaScreen04 from "../assets/images/zeta/zeta-screen-04.png";
+import zetaScreen05 from "../assets/images/zeta/zeta-screen-05.png";
+import zetaScreen06 from "../assets/images/zeta/zeta-screen-06.png";
+
 export const projects = [
   {
     slug: "arorent",
@@ -77,11 +88,120 @@ export const projects = [
       },
     ],
     nextProject: {
-      slug: "kaimo",
-      title: "Kaimo",
+      slug: "zeta",
+      title: "Zeta",
       label: "Next Project",
-      image: arorentHero,
-      accentColor: "#168A45",
-    }, 
+      image: zetaHero,
+      accentColor: "#244F9D",
+    },
   },
+
+
+    /*Zeta*/
+
+    {
+      slug: "zeta",
+
+      title: "Zeta",
+      eyebrow: "Case Study",
+
+      subtitle:
+        "A self-drive car rental platform built around trust, flexibility and frictionless mobility.",
+
+      description:
+        "Zeta reimagines self-drive rentals through a mobile-first experience focused on transparent pricing, simplified verification and flexible booking. The platform helps users discover, book and manage vehicles without the heavy deposits and complicated paperwork common in traditional rentals.",
+
+      heroImage: zetaHero,
+
+      heroPhones: {
+        left: zetaPhoneL,
+        right: zetaPhoneR,
+      },
+
+      meta: [
+        {
+          label: "Year",
+          value: "2024",
+        },
+        {
+          label: "Type",
+          value: "Company Project",
+        },
+        {
+          label: "Duration",
+          value: "3 Months",
+        },
+        {
+          label: "Tools",
+          value: "Figma + Photoshop",
+        },
+      ],
+
+      links: {
+        behance: "#",
+        figma: "#",
+      },
+
+      problem: [
+        "Traditional self-drive rentals require large deposits and extensive paperwork.",
+        "Complicated booking and KYC flows create friction for first-time renters.",
+        "Hidden costs and unclear rental terms reduce user trust.",
+      ],
+
+      role:
+        "I led the end-to-end UI/UX and brand identity work, including research, information architecture, user flows, visual design, prototyping and the creation of a scalable component system.",
+
+      roleTags: [
+        "UX Research",
+        "UI Design",
+        "Brand Identity",
+        "Prototyping",
+      ],
+
+      solution:
+        "A streamlined, trust-driven rental experience that simplifies vehicle discovery, identity verification, booking and trip management.",
+
+      features: [
+        "Transparent pricing and rental terms",
+        "Streamlined booking flow",
+        "Paperless identity verification",
+        "Flexible rental duration",
+        "Doorstep vehicle delivery",
+      ],
+
+      screens: [
+        {
+          title: "Authentication",
+          image: zetaScreen01,
+        },
+        {
+          title: "Onboarding",
+          image: zetaScreen02,
+        },
+        {
+          title: "Car Discovery",
+          image: zetaScreen03,
+        },
+        {
+          title: "Booking Details",
+          image: zetaScreen04,
+        },
+        {
+          title: "Payment",
+          image: zetaScreen05,
+        },
+        {
+          title: "Trip Management",
+          image: zetaScreen06,
+        },
+      ],
+
+      nextProject: {
+        slug: "arorent",
+        title: "AroRent",
+        label: "Next Project",
+        image: arorentHero,
+        accentColor: "#F95019",
+      },
+    },
 ];
