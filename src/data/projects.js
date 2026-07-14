@@ -49,7 +49,7 @@ export const projects = [
     heroImage: arorentHero,
     meta: [
       { label: "Year", value: "2024" },
-      { label: "Type", value: "Company Project" },
+      { label: "Business", value: "Company Project" },
       { label: "Duration", value: "3 Months" },
       { label: "Tool", value: "Figma" },
     ],
@@ -137,7 +137,7 @@ export const projects = [
           value: "2024",
         },
         {
-          label: "Type",
+          label: "Business",
           value: "Company Project",
         },
         {
@@ -243,7 +243,7 @@ export const projects = [
           value: "2026",
         },
         {
-          label: "Type",
+          label: "Business",
           value: "Concept Project",
         },
         {

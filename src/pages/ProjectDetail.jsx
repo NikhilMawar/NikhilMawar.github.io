@@ -52,7 +52,7 @@ export default function ProjectDetail({ theme = "light" }) {
 
   const metaIcons = {
     Year: CalendarDays,
-    Type: UsersRound,
+    Business: UsersRound,
     Duration: Clock3,
     Tool: Component,
     Tools: Component,
@@ -93,7 +93,7 @@ export default function ProjectDetail({ theme = "light" }) {
             <span>Back to Work</span>
           </button>
 
-          <button
+          {/*<button
             type="button"
             onClick={goBackToWork}
             data-cursor="link"
@@ -125,7 +125,7 @@ export default function ProjectDetail({ theme = "light" }) {
             >
               <X size={16} strokeWidth={1.6} />
             </span>
-          </button>
+          </button>*/}
         </div>
 
         <div
@@ -178,7 +178,7 @@ export default function ProjectDetail({ theme = "light" }) {
                     <p
                       className="
                         font-['Inter']
-                        text-[11px]
+                        text-[clamp(12px,0.83vw,16px)]
                         font-medium uppercase
                         tracking-[0.04em]
                       "
@@ -213,7 +213,19 @@ export default function ProjectDetail({ theme = "light" }) {
               style={{ backgroundColor: colors.tertiary }}
             />
 
-            <div className="mt-[24px] grid grid-cols-2 gap-[12px] sm:grid-cols-4">
+            <div className="mt-[22px] h-px w-full">
+                    <p
+                      className="
+                        font-['Inter']
+                        text-[clamp(16px,1.04vw,20px)]
+                      "
+                      style={{ color: colors.subtext }}
+                    >
+                      For more info and full case study!
+                    </p>
+            </div>
+
+            <div className="mt-[40px] grid grid-cols-2 gap-[12px] sm:grid-cols-4">
               <div className="col-span-1">
                 <Button
                   theme={theme}
