@@ -42,7 +42,7 @@ export default function NextProjectCard({
         <p
           className="
             font-['Inter']
-            text-[clamp(11px,0.73vw,14px)]
+            text-[clamp(12px,0.83vw,16px)]
             font-semibold uppercase
             tracking-[0.04em]
           "

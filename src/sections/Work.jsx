@@ -3,11 +3,21 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { themeColors } from "../utils/theme";
 import ProjectCard from "../components/work/ProjectCard";
 import aroRentImage from "../assets/images/arorent-placeholder.png";
-import project2Image from "../assets/images/project2-placeholder.png";
+import kaimoHero from "../assets/images/kaimoHero.png";
 import zetaHero from "../assets/images/zetaHero.png";
 import SectionReveal from "../components/common/SectionReveal";
 
 const projects = [
+  {
+    slug: "kaimo",
+    title: "Kaimo",
+    label: "AI Learning Ecosystem",
+    description:
+      "An AI-powered education platform combining tutoring, social learning and gamified progress.",
+    image: kaimoHero,
+    pills: ["Product Design", "AI Experience", "EdTech"],
+    accentColor: "#348d78",
+  },
   {
     slug: "arorent",
     title: "AroRent",
@@ -28,16 +38,7 @@ const projects = [
     pills: ["UX Research", "UI Design", "Mobility"],
     accentColor: "#6D5DF6",
   },
-  {
-    slug: "kaimo",
-    title: "Project Two",
-    label: "Fintech Dashboard",
-    description:
-      "A clean financial interface exploring hierarchy, motion and responsive dashboard systems.",
-    image: project2Image,
-    pills: ["UX Researchs", "Product Designs", "Mobile Apps"],
-    accentColor: "#168A45",
-  },
+  
   
 ];
 
@@ -51,7 +52,7 @@ export default function Work({ theme = "light" }) {
   });
 
   return (
-    <section id="work" ref={sectionRef} className="relative h-[400vh]">
+    <section id="work" ref={sectionRef} className="relative h-[500vh]">
       <div className="sticky top-0 z-[2] h-screen overflow-hidden">
         <SectionReveal blur={8} className="h-full">
           <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">
@@ -105,12 +106,26 @@ export default function Work({ theme = "light" }) {
 }
 
 function StackedProjectCard({ project, index, progress, theme }) {
-  const start = index * 0.28;
-  const end = start + 0.28;
+  const start = index * 0.22;
+  const end = start + 0.22;
 
-  const y = useTransform(progress, [start, end], [index === 0 ? 0 : 460, 0]);
-  const scale = useTransform(progress, [end, end + 0.2], [1, 0.94]);
-  const opacity = useTransform(progress, [start, start + 0.08], [1, 1]);
+  const y = useTransform(
+    progress,
+    [start, end],
+    [index === 0 ? 0 : 460, 0]
+  );
+
+  const scale = useTransform(
+    progress,
+    [end, Math.min(end + 0.16, 0.72)],
+    [1, 0.94]
+  );
+
+  const opacity = useTransform(
+    progress,
+    [start, start + 0.06],
+    [1, 1]
+  );
 
   return (
     <motion.div
@@ -122,7 +137,11 @@ function StackedProjectCard({ project, index, progress, theme }) {
         zIndex: 10 + index,
       }}
     >
-      <ProjectCard project={project} theme={theme} index={index} />
+      <ProjectCard
+        project={project}
+        theme={theme}
+        index={index}
+      />
     </motion.div>
   );
 }

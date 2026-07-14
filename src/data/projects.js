@@ -20,6 +20,19 @@ import zetaScreen04 from "../assets/images/zeta/zeta-screen-04.png";
 import zetaScreen05 from "../assets/images/zeta/zeta-screen-05.png";
 import zetaScreen06 from "../assets/images/zeta/zeta-screen-06.png";
 
+/* kaimo internal img */
+/* Kaimo internal images */
+import kaimoHero from "../assets/images/kaimoHero.png";
+import kaimoPhoneL from "../assets/images/kaimo-phone-L.png";
+import kaimoPhoneR from "../assets/images/kaimo-phone-R.png";
+
+import kaimoScreen01 from "../assets/images/kaimo/kaimo-screen-01.png";
+import kaimoScreen02 from "../assets/images/kaimo/kaimo-screen-02.png";
+import kaimoScreen03 from "../assets/images/kaimo/kaimo-screen-03.png";
+import kaimoScreen04 from "../assets/images/kaimo/kaimo-screen-04.png";
+import kaimoScreen05 from "../assets/images/kaimo/kaimo-screen-05.png";
+import kaimoScreen06 from "../assets/images/kaimo/kaimo-screen-06.png";
+
 export const projects = [
   {
     slug: "arorent",
@@ -197,11 +210,122 @@ export const projects = [
       ],
 
       nextProject: {
+        slug: "kaimo",
+        title: "Kaimo",
+        label: "Next Project",
+        image: kaimoHero,
+        accentColor: "#348d78",
+      },
+    },
+
+    {
+      slug: "kaimo",
+
+      title: "Kaimo",
+      eyebrow: "Case Study",
+
+      subtitle:
+        "An AI-powered learning ecosystem designed to make digital education more engaging, social and rewarding.",
+
+      description:
+        "Kaimo replaces the clinical feel of traditional EdTech with a high-energy learning experience built around AI companionship, peer collaboration and gamified progress. The platform helps students stay motivated, clarify difficult concepts and manage their academic journey within one connected ecosystem.",
+
+      heroImage: kaimoHero,
+
+      heroPhones: {
+        left: kaimoPhoneL,
+        right: kaimoPhoneR,
+      },
+
+      meta: [
+        {
+          label: "Year",
+          value: "2026",
+        },
+        {
+          label: "Type",
+          value: "Concept Project",
+        },
+        {
+          label: "Duration",
+          value: "4 Months",
+        },
+        {
+          label: "Tools",
+          value: "Figma + FigJam",
+        },
+      ],
+
+      links: {
+        behance: "#",
+        figma: "#",
+      },
+
+      problem: [
+        "Students often feel isolated and unmotivated while studying online.",
+        "Traditional educational platforms feel clinical, fragmented and passive.",
+        "Switching between multiple study tools creates cognitive overload.",
+      ],
+
+      role:
+        "I led the end-to-end product design process, including user research, product strategy, information architecture, UX design, visual design, branding, prototyping and design system creation.",
+
+      roleTags: [
+        "UX Research",
+        "Product Design",
+        "AI Experience",
+        "Visual Design",
+        "Design System",
+      ],
+
+      solution:
+        "A unified AI learning ecosystem that combines intelligent tutoring, peer collaboration, progress tracking and gamified rewards within a premium Liquid Glass interface.",
+
+      features: [
+        "MoBot AI study companion",
+        "Peer collaboration and group chat",
+        "Gamified progress and Kcoin rewards",
+        "Academic dashboards and grade tracking",
+        "Interactive learning content",
+      ],
+
+      screens: [
+        {
+          title: "Dashboard",
+          image: kaimoScreen01,
+        },
+        {
+          title: "Grade Book",
+          image: kaimoScreen02,
+        },
+        {
+          title: "MoBot AI",
+          image: kaimoScreen03,
+        },
+        {
+          title: "Study Groups",
+          image: kaimoScreen04,
+        },
+        {
+          title: "Progress Tracking",
+          image: kaimoScreen05,
+        },
+        {
+          title: "Profile",
+          image: kaimoScreen06,
+        },
+      ],
+
+      nextProject: {
         slug: "arorent",
         title: "AroRent",
         label: "Next Project",
         image: arorentHero,
         accentColor: "#F95019",
       },
-    },
+},
+
+
+
+
 ];

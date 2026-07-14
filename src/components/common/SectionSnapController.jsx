@@ -100,10 +100,13 @@ export default function SectionSnapController() {
 
       const isLongSection = sectionHeight > viewportHeight * 1.4;
 
+      const nextThreshold =
+        currentSection.id === "work" ? 0.92 : 0.78;
+
       const canGoNext =
         direction === 1 &&
         currentIndex < sections.length - 1 &&
-        (!isLongSection || progress >= NEXT_THRESHOLD);
+        (!isLongSection || progress >= nextThreshold);
 
       const canGoPrev =
         direction === -1 &&
