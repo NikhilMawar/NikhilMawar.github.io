@@ -14,7 +14,10 @@ export default function Hero({ startAnimation = false, theme = "light", onThemeT
   return (
     <section
       id="hero"
-      className="relative h-screen w-full overflow-hidden transition-colors duration-700"
+      className="
+        relative h-[100dvh] min-h-[100svh] w-full
+        overflow-hidden transition-colors duration-700
+      "
       style={{
         backgroundColor: colors.bg,
         color: colors.heading,

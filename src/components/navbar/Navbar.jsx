@@ -137,7 +137,7 @@ export default function Navbar({
             <Logo className="h-[clamp(22px,1.56vw,30px)] w-auto" />
           </button>
 
-          <div className="flex items-center gap-[clamp(22px,1.75vw,34px)]">
+          <div className="hidden items-center gap-[clamp(22px,1.75vw,34px)] md:flex">
             {navItems.map((item) => {
               const sectionId = item.toLowerCase();
 

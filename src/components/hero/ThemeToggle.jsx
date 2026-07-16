@@ -40,18 +40,21 @@ export default function ThemeToggle({
       onClick={handleToggle}
       className="
         fixed
-        right-[clamp(20px,2.6vw,50px)]
+        right-[14px]
         top-0
         z-[140]
-        hidden
-        h-[clamp(180px,11vw,212px)]
-        w-[clamp(76px,4.8vw,92px)]
+        block
+        h-[150px]
+        w-[58px]
         cursor-pointer
         border-0
         bg-transparent
         p-0
         outline-none
-        md:block
+
+        md:right-[clamp(20px,2.6vw,50px)]
+        md:h-[clamp(180px,11vw,212px)]
+        md:w-[clamp(76px,4.8vw,92px)]
       "
       initial={{ opacity: 0, y: -18 }}
       animate={
@@ -69,11 +72,16 @@ export default function ThemeToggle({
         {/* Fixed support cord + fixed bulb */}
         <Bulb
           className={`
-            absolute left-0 top-0
-            h-[clamp(118px,7.92vw,152px)]
+            absolute
+            left-0
+            top-0
+            h-[106px]
             w-auto
             transition-[color,filter]
             duration-500
+
+            md:h-[clamp(118px,7.92vw,152px)]
+
             ${
               isDark
                 ? "text-[#949490]"
@@ -95,19 +103,24 @@ export default function ThemeToggle({
         <BulbRope
           controls={ropeControls}
           className={`
-            absolute
-            left-[clamp(28px,2.1vw,40px)]
-            top-0
-            h-[clamp(145px,9.8vw,188px)]
-            w-[clamp(28px,2vw,40px)]
-            transition-colors
-            duration-500
-            ${
-              isDark
-                ? "text-[#808080]"
-                : "text-[#5D5C59]"
-            }
-          `}
+          absolute
+          left-[22px]
+          top-0
+          h-[137px]
+          w-[28px]
+          transition-colors
+          duration-500
+
+          md:left-[clamp(28px,2.1vw,40px)]
+          md:h-[clamp(145px,9.8vw,188px)]
+          md:w-[clamp(28px,2vw,40px)]
+
+          ${
+            isDark
+              ? "text-[#808080]"
+              : "text-[#5D5C59]"
+          }
+        `}
         />
       </div>
     </motion.button>

@@ -90,16 +90,59 @@ function HomePage({
 function App() {
   const [loading, setLoading] = useState(true);
   const [heroReady, setHeroReady] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
   const [overlayOpen, setOverlayOpen] = useState(false);
 
-  useEffect(() => {
+  {/*useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) setTheme(savedTheme);
-  }, []);
+  }, []);*/}
 
   useEffect(() => {
+    const backgroundColor = themeColors[theme].bg;
+    const isDark = theme === "dark";
+
     localStorage.setItem("theme", theme);
+
+    // Used by index.css to keep html, body and #root synchronized.
+    document.documentElement.dataset.theme = theme;
+
+    document.documentElement.style.backgroundColor = backgroundColor;
+    document.body.style.backgroundColor = backgroundColor;
+
+    document.documentElement.style.colorScheme = isDark
+      ? "dark"
+      : "light";
+
+    document.body.style.colorScheme = isDark
+      ? "dark"
+      : "light";
+
+    // Replacing the element forces Safari to repaint more reliably.
+    const oldThemeMeta = document.querySelector(
+      'meta[name="theme-color"]'
+    );
+
+    const newThemeMeta = document.createElement("meta");
+
+    newThemeMeta.setAttribute("name", "theme-color");
+    newThemeMeta.setAttribute("content", backgroundColor);
+
+    if (oldThemeMeta) {
+      oldThemeMeta.replaceWith(newThemeMeta);
+    } else {
+      document.head.appendChild(newThemeMeta);
+    }
+
+    // Safari sometimes recalculates its toolbar after a frame.
+    const frame = requestAnimationFrame(() => {
+      document.documentElement.style.backgroundColor = backgroundColor;
+      document.body.style.backgroundColor = backgroundColor;
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [theme]);
 
   useEffect(() => {
@@ -119,12 +162,13 @@ function App() {
 
   return (
     <main
-      className="relative isolate min-h-screen"
+      className="relative isolate min-h-[100dvh] w-full"
       style={{ backgroundColor: colors.bg }}
     >
       <CustomCursor theme={theme} />
 
-      <div className="relative z-[2]">
+      <div className="relative z-[2] min-h-[100dvh] w-full"
+            style={{backgroundColor: colors.bg}}>
         <Routes>
           <Route
             path="/"

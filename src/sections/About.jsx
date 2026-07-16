@@ -56,9 +56,15 @@ export default function About({ theme = "light" }) {
       id="about"
       ref={sectionRef}
       className="relative h-[350vh] w-full"
-      style={{ color: colors.heading }}
+      style={{
+        backgroundColor: colors.bg,
+        color: colors.heading,
+      }}
     >
-      <div className="sticky top-0 z-[2] h-screen overflow-hidden">
+      <div
+        className="sticky top-0 z-[2] h-[100dvh] overflow-hidden"
+        style={{ backgroundColor: colors.bg }}
+      >
         <SectionReveal blur={6} className="h-full">
           <div className="mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(100px,7vw,135px)]">
             <p

@@ -37,7 +37,10 @@ export default function Contact({ theme = "light" }) {
         color: colors.heading,
       }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div
+        className="sticky top-0 h-[100dvh] overflow-hidden"
+        style={{ backgroundColor: colors.bg }}
+      >
         <SectionReveal blur={6} className="h-full">
           <div className="mx-auto w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(95px,6.8vw,130px)]">
             <p
