@@ -61,11 +61,20 @@ export default function About({ theme = "light" }) {
         color: colors.heading,
       }}
     >
-      <div
-        className="sticky top-0 z-[2] h-[100dvh] overflow-hidden"
-        style={{ backgroundColor: colors.bg }}
-      >
-        <SectionReveal blur={6} className="h-full">
+      <div className="sticky top-0 z-[2] h-[100dvh] overflow-hidden">
+        {/*
+          Background lives on an absolute child, not on this `sticky`
+          element itself — see Work.jsx for the full explanation. This
+          section is `sticky top-0` for the entire 350vh scroll runway,
+          so it was acting as a permanent flat-color tint source.
+        */}
+        <div
+          aria-hidden="true"
+          style={{ backgroundColor: colors.bg }}
+          className="pointer-events-none absolute inset-0"
+        />
+
+        <SectionReveal blur={6} className="relative z-[1] h-full">
           <div className="mx-auto h-full w-full max-w-[1920px] px-[clamp(20px,2.6vw,50px)] py-[clamp(100px,7vw,135px)]">
             <p
               className="mb-[clamp(12px,1vw,18px)] text-[clamp(12px,0.83vw,16px)] font-medium uppercase tracking-[0.02em]"

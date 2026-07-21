@@ -111,33 +111,50 @@ export default function Navbar({
           }}
           style={{
             width: navWidth,
-            backgroundColor: bg,
-            borderColor,
-            boxShadow: shadow,
             paddingLeft,
             paddingRight,
             paddingTop: paddingY,
             paddingBottom: paddingY,
           }}
-          className="
-            relative flex items-center justify-between
-            overflow-visible rounded-full border
-            backdrop-blur-[80px]
-            supports-[backdrop-filter]:bg-white/20
-          "
+          className="relative flex items-center justify-between overflow-visible rounded-full"
         >
+          {/*
+            Glass background lives on an `absolute` child, not on this
+            `motion.nav` itself. Safari 26's Liquid Glass tinting algorithm
+            samples background-color/backdrop-filter set directly on fixed
+            (or fixed-adjacent) elements to color the status bar/toolbar.
+            Keeping this layer `absolute` makes it invisible to that
+            sampling, so the pill looks identical but no longer forces a
+            solid status-bar block. Same pattern already used in
+            PrivacyModal.jsx.
+          */}
+          <motion.div
+            aria-hidden="true"
+            style={{
+              backgroundColor: bg,
+              borderColor,
+              boxShadow: shadow,
+            }}
+            className="
+              pointer-events-none absolute inset-0
+              rounded-full border
+              backdrop-blur-[80px]
+              supports-[backdrop-filter]:bg-white/20
+            "
+          />
+
           <button
             type="button"
             data-cursor="link"
             onClick={scrollToHome}
             aria-label="Scroll to home"
-            className="flex items-center"
+            className="relative z-[1] flex items-center"
             style={{ color: colors.heading }}
           >
             <Logo className="h-[clamp(22px,1.56vw,30px)] w-auto" />
           </button>
 
-          <div className="hidden items-center gap-[clamp(22px,1.75vw,34px)] md:flex">
+          <div className="relative z-[1] hidden items-center gap-[clamp(22px,1.75vw,34px)] md:flex">
             {navItems.map((item) => {
               const sectionId = item.toLowerCase();
 

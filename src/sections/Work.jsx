@@ -61,11 +61,22 @@ export default function Work({ theme = "light" }) {
         color: colors.heading,
       }}
     >
-      <div
-        className="sticky top-0 z-[2] h-[100dvh] overflow-hidden"
-        style={{ backgroundColor: colors.bg }}
-      >
-        <SectionReveal blur={8} className="h-full">
+      <div className="sticky top-0 z-[2] h-[100dvh] overflow-hidden">
+        {/*
+          Background lives on an absolute child, not on this `sticky`
+          element itself. Safari 26 samples background-color set directly
+          on fixed/sticky elements pinned to the top edge to tint its
+          status bar — since this element is `sticky top-0` for the
+          entire 500vh section, it was acting as a permanent flat-color
+          override instead of letting real content show through.
+        */}
+        <div
+          aria-hidden="true"
+          style={{ backgroundColor: colors.bg }}
+          className="pointer-events-none absolute inset-0"
+        />
+
+        <SectionReveal blur={8} className="relative z-[1] h-full">
           <div className="mx-auto grid h-full w-full max-w-[1920px] grid-cols-12 gap-x-[clamp(12px,1.05vw,20px)] px-[clamp(20px,2.6vw,50px)] pt-[clamp(100px,7vw,135px)]">
             <div className="col-span-12">
               <p

@@ -1,4 +1,4 @@
-  <!doctype html>
+<!doctype html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -15,10 +15,13 @@
 
       <!-- iOS -->
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta
-        name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent"
-      />
+      <!--
+        No apple-mobile-web-app-status-bar-style here on purpose.
+        It only applies to standalone/home-screen installs (not regular
+        Safari tabs), it's a static value that can't follow light/dark
+        theme switches, and a hardcoded "black-translucent" was fighting
+        the dynamic theme-color meta that App.jsx already keeps in sync.
+      -->
       <meta
         name="apple-mobile-web-app-title"
         content="Nikhil Mawar"
