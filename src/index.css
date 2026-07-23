@@ -41,7 +41,7 @@ html[data-theme="dark"] #root {
   background-color: #0f0f0e;
 }
 
-/* Portrait Line Animation */
+/* Portrait Line Animati*/
 .portrait-line-svg {
   display: block;
   overflow: visible;
@@ -227,6 +227,9 @@ html[data-theme="dark"] #root {
 
   width: 100%;
 
+  background-color: var(--mobile-topbar-bg);
+  transition: background-color 700ms;
+
   pointer-events: none;
 }
 
@@ -240,15 +243,17 @@ html[data-theme="dark"] #root {
     var(--mobile-topbar-height)
     + env(safe-area-inset-top)
     + 40px
+  );  
+
+  background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 55%,
+      transparent 100%
   );
 
-  background: var(--mobile-topbar-gradient-light);
+  transition: background-color 700ms;
 
   pointer-events: none;
-}
-
-.dark .mobile-topbar::before {
-  background: var(--mobile-topbar-gradient-dark);
 }
 
 .mobile-topbar__content {

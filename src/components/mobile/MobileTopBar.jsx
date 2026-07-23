@@ -1,21 +1,33 @@
 import Logo from "../../assets/svg/logo.svg?react";
-import BulbRope from "../hero/BulbRope";
+import ThemeToggle from "../hero/ThemeToggle";
+import { themeColors } from "../../utils/theme";
+
+
 
 export default function MobileTopBar({
   theme,
   onThemeToggle,
 }) {
+
+const colors = themeColors[theme];
+
   return (
-    <header className="mobile-topbar">
+    <header
+
+        className="mobile-topbar"
+        style={{
+            "--mobile-topbar-bg": colors.bg,
+        }}
+    >
 
         <div className="mobile-topbar__content">
 
         <Logo className="mobile-topbar__logo" />
 
-        <BulbRope
-          theme={theme}
-          onThemeToggle={onThemeToggle}
-          mobile
+        <ThemeToggle
+            mobile
+            theme={theme}
+            onToggle={onThemeToggle}
         />
 
       </div>

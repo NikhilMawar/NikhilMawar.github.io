@@ -7,6 +7,7 @@ export default function ThemeToggle({
   theme,
   onToggle,
   startAnimation = false,
+  mobile = false,
 }) {
   const ropeControls = useAnimationControls();
   const [isPulling, setIsPulling] = useState(false);
@@ -38,14 +39,13 @@ export default function ThemeToggle({
 
     setIsPulling(true);
 
-    // Change theme immediately.
+    // Pull chain first.
+    await ropeControls.start("pulled");
+
+    // Now change the theme.
     onToggle();
 
-    // Give the browser one frame to commit the theme.
-    await new Promise(requestAnimationFrame);
-
-    // Now animate.
-    await ropeControls.start("pulled");
+    // Rope swings back.
     await ropeControls.start("rebound");
     await ropeControls.start("rest");
 
@@ -57,35 +57,58 @@ export default function ThemeToggle({
       type="button"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       onClick={handleToggle}
-      className="
-        fixed
-        right-[14px]
-        top-0
-        z-[140]
+      className={`
+        ${
+          mobile
+            ? `
+              relative
+              h-[72px]
+              w-[58px]
+            `
+            : `
+              fixed
+              right-[14px]
+              top-0
+              z-[140]
+              h-[150px]
+              w-[58px]
+
+              md:right-[clamp(20px,2.6vw,50px)]
+              md:h-[clamp(180px,11vw,212px)]
+              md:w-[clamp(76px,4.8vw,92px)]
+            `
+        }
+
         block
-        h-[150px]
-        w-[58px]
         cursor-pointer
         border-0
         bg-transparent
         p-0
         outline-none
-
-        md:right-[clamp(20px,2.6vw,50px)]
-        md:h-[clamp(180px,11vw,212px)]
-        md:w-[clamp(76px,4.8vw,92px)]
-      "
-      initial={{ opacity: 0, y: -18 }}
-      animate={
-        startAnimation
-          ? { opacity: 1, y: 0 }
+      `}
+      initial={
+        mobile
+          ? false
           : { opacity: 0, y: -18 }
       }
-      transition={{
-        duration: 0.8,
-        delay: 0.25,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      animate={
+        mobile
+          ? undefined
+          : (
+            startAnimation
+              ? { opacity: 1, y: 0 }
+              : { opacity: 0, y: -18 }
+          )
+      }
+      transition={
+        mobile
+          ? undefined
+          : {
+              duration: 0.8,
+              delay: 0.25,
+              ease: [0.22, 1, 0.36, 1],
+            }
+      }
     >
       <div className="relative h-full w-full overflow-visible">
         {/* Fixed support cord + fixed bulb */}
