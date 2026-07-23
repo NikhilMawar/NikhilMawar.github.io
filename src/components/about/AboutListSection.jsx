@@ -22,10 +22,21 @@ export default function AboutListSection({
         style={{
           top: `${stackIndex * 52}px`,
           color: colors.heading,
-          backgroundColor: colors.bg,
           borderColor: colors.tertiary,
         }}
       >
+        {/*
+          Background lives on an absolute child, not on this `sticky`
+          element itself — same Safari 26 tint fix as the main sections
+          (see Work.jsx). This header can land near the top edge as the
+          person scrolls through About, so a direct background-color
+          here would act as another flat-tint source.
+        */}
+        <span
+          aria-hidden="true"
+          style={{ backgroundColor: colors.bg }}
+          className="pointer-events-none absolute inset-0 -z-10"
+        />
         {title}
       </h3>
 

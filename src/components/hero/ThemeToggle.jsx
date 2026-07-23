@@ -13,7 +13,7 @@ export default function ThemeToggle({
 
   const isDark = theme === "dark";
 
-  const handleToggle = async () => {
+ {/*} const handleToggle = async () => {
     if (isPulling) return;
 
     setIsPulling(true);
@@ -28,6 +28,25 @@ export default function ThemeToggle({
     await ropeControls.start("rebound");
 
     // Return to natural slack curve.
+    await ropeControls.start("rest");
+
+    setIsPulling(false);
+  };*/} //temporary
+
+  const handleToggle = async () => {
+    if (isPulling) return;
+
+    setIsPulling(true);
+
+    // Change theme immediately.
+    onToggle();
+
+    // Give the browser one frame to commit the theme.
+    await new Promise(requestAnimationFrame);
+
+    // Now animate.
+    await ropeControls.start("pulled");
+    await ropeControls.start("rebound");
     await ropeControls.start("rest");
 
     setIsPulling(false);

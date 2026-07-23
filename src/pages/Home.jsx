@@ -1,9 +1,11 @@
-import Hero from "../sections/Hero"
+import useDeviceType from "../hooks/useDeviceType";
+import DesktopLayout from "../layouts/DesktopLayout";
+import MobileLayout from "../layouts/MobileLayout";
 
-export default function Home() {
-  return (
-    <main className="w-full min-h-screen bg-white text-black">
-      <Hero />
-    </main>
-  )
+export default function Home(props) {
+  const device = useDeviceType();
+
+  return device.isDesktop
+      ? <DesktopLayout {...props} />
+      : <MobileLayout {...props} />;
 }

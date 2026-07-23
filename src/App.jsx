@@ -5,16 +5,18 @@ import {Routes,
         useNavigate, } from "react-router-dom";
 
 import Preloader from "./components/preloader/Preloader";
-import Hero from "./sections/Hero";
+{/*import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 import About from "./sections/About";
 import Process from "./sections/Process";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import SectionSnapController from "./components/common/SectionSnapController";*/}
 import CustomCursor from "./components/common/CustomCursor";
-import SectionSnapController from "./components/common/SectionSnapController";
 import ProjectDetail from "./pages/ProjectDetail";
 import { themeColors } from "./utils/theme";
+import SafariTintShim from "./components/common/SafariTintShim";
+import Home from "./pages/Home";
 
 function HomePage({
   theme,
@@ -25,6 +27,31 @@ function HomePage({
 }) {
   const location = useLocation();
   const navigate = useNavigate();
+
+
+  const [showSafariShim, setShowSafariShim] = useState(false);
+
+  useEffect(() => {
+    const enableShim = () => {
+      setShowSafariShim(true);
+
+      window.removeEventListener("scroll", enableShim);
+      window.removeEventListener("touchmove", enableShim);
+    };
+
+    window.addEventListener("scroll", enableShim, {
+      passive: true,
+    });
+
+    window.addEventListener("touchmove", enableShim, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", enableShim);
+      window.removeEventListener("touchmove", enableShim);
+    };
+  }, []);
 
   useEffect(() => {
     const sectionId = location.state?.scrollTo;
@@ -69,6 +96,11 @@ function HomePage({
 
   return (
     <>
+
+      {showSafariShim && (
+        <SafariTintShim theme={theme} />
+      )}
+
       <SectionSnapController />
 
       <Hero
@@ -100,6 +132,8 @@ function App() {
     if (savedTheme) setTheme(savedTheme);
   }, []);*/}
 
+  const colors = themeColors[theme];
+
   useEffect(() => {
     const backgroundColor = themeColors[theme].bg;
     const isDark = theme === "dark";
@@ -109,7 +143,17 @@ function App() {
     // Used by index.css to keep html, body and #root synchronized.
     document.documentElement.dataset.theme = theme;
 
-    document.documentElement.style.backgroundColor = backgroundColor;
+    document.documentElement.style.setProperty(
+      "--page-bg",
+      colors.bg
+    );
+
+    document.documentElement.style.setProperty(
+      "--page-heading",
+      colors.heading
+    );
+
+    //document.documentElement.style.backgroundColor = backgroundColor;
     document.body.style.backgroundColor = backgroundColor;
 
     document.documentElement.style.colorScheme = isDark
@@ -137,9 +181,13 @@ function App() {
     }
 
     // Safari sometimes recalculates its toolbar after a frame.
+    //const frame = requestAnimationFrame(() => {
+      //document.documentElement.style.backgroundColor = backgroundColor;
+      //document.body.style.backgroundColor = backgroundColor;
+    //});
+
     const frame = requestAnimationFrame(() => {
-      document.documentElement.style.backgroundColor = backgroundColor;
-      document.body.style.backgroundColor = backgroundColor;
+        document.body.style.backgroundColor = backgroundColor;
     });
 
     return () => cancelAnimationFrame(frame);
@@ -158,13 +206,14 @@ function App() {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
-  const colors = themeColors[theme];
+  
 
   return (
     <main
       className="relative isolate min-h-[100dvh] w-full"
       style={{ backgroundColor: colors.bg }}
     >
+
       <CustomCursor theme={theme} />
 
       <div className="relative z-[2] min-h-[100dvh] w-full"
@@ -173,7 +222,7 @@ function App() {
           <Route
             path="/"
             element={
-              <HomePage
+              <Home
                 theme={theme}
                 heroReady={heroReady}
                 toggleTheme={toggleTheme}

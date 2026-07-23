@@ -2,24 +2,29 @@
 @import "tailwindcss";
 
 
+:root {
+  --page-bg: #efece4;
+  --page-heading: #0f0e0d;
+}
+
 html,
 body,
 #root {
   width: 100%;
   min-height: 100%;
   margin: 0;
+  background: var(--page-bg);
 }
 
-html {
-  min-height: 100%;
-  background-color: #efece4;
-}
+/*html {
+  /*background: var(--page-bg);
+/*}
 
 body {
   min-height: 100dvh;
   overflow-x: hidden;
-  background-color: #efece4;
-  color: #0f0e0d;
+  background: var(--page-bg);
+  color: var(--page-heading);
   font-family: "Inter", sans-serif;
 }
 
@@ -177,4 +182,97 @@ html[data-theme="dark"] #root {
   .custom-cursor-main {
     display: none;
   }
+}
+
+
+
+
+/* =========================================================
+   MOBILE DESIGN SYSTEM
+   ========================================================= */
+
+/* ---------- Layout ---------- */
+
+:root {
+
+  /*Layout*/
+  --mobile-page-padding: 24px;
+  --mobile-max-width: 480px;
+  --mobile-topbar-height: 72px;
+  --mobile-section-spacing: 96px;
+  /*Top Bar*/
+  --mobile-topbar-gradient-light: linear-gradient(
+    to bottom,
+    #efece4 0%,
+    #efece4 55%,
+    rgba(239, 236, 228, 0) 100%
+  );
+
+  --mobile-topbar-gradient-dark: linear-gradient(
+    to bottom,
+    #0f0f0e 0%,
+    #0f0f0e 55%,
+    rgba(15, 15, 14, 0) 100%
+  );
+}
+
+/* =========================================================
+   MOBILE TOP BAR
+   ========================================================= */
+
+.mobile-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  pointer-events: none;
+}
+
+.mobile-topbar::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  height: calc(
+    var(--mobile-topbar-height)
+    + env(safe-area-inset-top)
+    + 40px
+  );
+
+  background: var(--mobile-topbar-gradient-light);
+
+  pointer-events: none;
+}
+
+.dark .mobile-topbar::before {
+  background: var(--mobile-topbar-gradient-dark);
+}
+
+.mobile-topbar__content {
+  position: relative;
+
+  height: calc(
+    var(--mobile-topbar-height)
+    + env(safe-area-inset-top)
+  );
+
+  padding-top: env(safe-area-inset-top);
+
+  padding-inline: var(--mobile-page-padding);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  pointer-events: auto;
+}
+
+.mobile-topbar__logo {
+  width: 24px;
+  height: auto;
+
+  flex-shrink: 0;
 }
