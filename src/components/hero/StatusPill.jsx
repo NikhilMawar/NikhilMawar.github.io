@@ -8,21 +8,23 @@ export default function StatusPill({
   borderColor,
   textColor,
   backgroundColor,
+  mobile = false,
 }) {
   const colors = themeColors[theme];
 
   return (
     <div
-      className="
-        flex h-[clamp(26px,1.9vw,36px)]
-        items-center justify-center
-        rounded-full border
-        px-[clamp(14px,1.25vw,24px)]
-        text-[clamp(12px,0.83vw,16px)]
-        font-medium uppercase
-        leading-none tracking-[-0.01em]
-        transition-colors duration-700
-      "
+      className={`
+      flex items-center justify-center rounded-full border transition-colors duration-700
+
+      ${
+        mobile
+          ? "h-[34px] px-5 text-[11px]"
+          : "h-[clamp(26px,1.9vw,36px)] px-[clamp(14px,1.25vw,24px)] text-[clamp(12px,0.83vw,16px)]"
+      }
+
+      font-medium uppercase leading-none tracking-[-0.01em]
+    `}
       style={{
         borderColor:
         borderColor ??

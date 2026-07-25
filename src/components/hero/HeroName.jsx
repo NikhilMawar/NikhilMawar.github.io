@@ -35,7 +35,27 @@ function AnimatedWord({ word }) {
 
 export default function HeroName({ startAnimation = false }) {
   return (
-    <h1 className="relative z-[99] overflow-visible py-[0.08em] font-['Syne'] text-[clamp(64px,11.6vw,224px)] font-extrabold leading-[0.98] tracking-[-0.07em]">
+    //<h1 className="relative z-[99] overflow-visible py-[0.08em] font-['Syne'] text-[clamp(64px,11.6vw,224px)] font-extrabold leading-[0.98] tracking-[-0.07em]">
+    <h1
+      className="
+      relative
+      z-[99]
+      overflow-visible
+      py-[0.08em]
+
+      font-['Syne']
+      font-extrabold
+
+      text-[64px]
+      leading-[0.88]
+      tracking-[-0.07em]
+
+      sm:text-[72px]
+
+      md:text-[clamp(64px,11.6vw,224px)]
+      md:leading-[0.98]
+      "
+    >
       <Reveal delay={0.35} start={startAnimation}>
         <AnimatedWord word="Nikhil" />
       </Reveal>

@@ -75,11 +75,16 @@ function TickerItem() {
   return (
     <div
       className="
-        flex h-[clamp(38px,3.1vw,60px)]
+        flex 
+        h-[34px]
+        sm:h-[36px]
+        md:h-[clamp(38px,3.1vw,60px)]
         items-center gap-[clamp(28px,3vw,58px)]
         px-[clamp(28px,3vw,58px)]
         font-['Syne']
-        text-[12px]
+        text-[10px]
+        sm:text-[11px]
+        md:text-[12px]
         font-light uppercase
         tracking-[0.02em]
         whitespace-nowrap

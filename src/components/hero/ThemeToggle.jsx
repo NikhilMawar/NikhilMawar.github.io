@@ -62,6 +62,7 @@ export default function ThemeToggle({
           mobile
             ? `
               relative
+              top-[-40px]
               h-[72px]
               w-[58px]
             `
