@@ -71,7 +71,7 @@ export default function MobileWork({
 
         {/* Cards */}
         <Reveal
-            delay={2.5}
+            delay={1}
             start={startAnimation}
         >
         <div className="mt-[32px] space-y-[28px]">

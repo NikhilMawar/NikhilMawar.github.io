@@ -280,7 +280,7 @@ export default function ProjectDetail({ theme = "light" }) {
                 draggable="false"
                 className="
                   absolute z-[2]
-                  left-[13%]
+                  left-[6%] sm:left-[13%]
                   top-[8%]
                   w-[clamp(165px,14.8vw,285px)]
                   object-contain
@@ -305,7 +305,7 @@ export default function ProjectDetail({ theme = "light" }) {
                 draggable="false"
                 className="
                   absolute z-[3]
-                  right-[11%]
+                  right-[4%] sm:right-[11%]
                   top-[5%]
                   w-[clamp(175px,15.7vw,300px)]
                   object-contain
