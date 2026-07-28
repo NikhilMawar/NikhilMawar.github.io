@@ -8,6 +8,7 @@ import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
 import MobileHero from "../sections/MobileHero";
+import MobileWork from "../sections/MobileWork";
 
 export default function MobileLayout({
   theme,
@@ -28,7 +29,7 @@ export default function MobileLayout({
             onThemeToggle={toggleTheme}
             {...props}
         />
-        <Work theme={theme} />
+        <MobileWork theme={theme} />
         <About theme={theme} />
         <Process theme={theme} />
         <Contact theme={theme} />

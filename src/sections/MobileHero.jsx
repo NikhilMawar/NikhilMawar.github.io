@@ -31,7 +31,7 @@ export default function MobileHero({
           mx-auto
           flex
           min-h-[100dvh]
-          max-w-[430px]
+          max-w-[640px]
           flex-col
           px-6
         "

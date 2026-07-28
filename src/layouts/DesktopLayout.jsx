@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 //import Hero from "../sections/Hero";
-import Work from "../sections/Work";
+import DesktopWork from "../sections/DesktopWork";
 import About from "../sections/About";
 import Process from "../sections/Process";
 import Contact from "../sections/Contact";
@@ -72,7 +72,7 @@ export default function DesktopLayout({
           hideChrome={overlayOpen}
       />
 
-      <Work theme={theme} />
+      <DesktopWork theme={theme} />
       <About theme={theme} />
       <Process theme={theme} />
       <Contact theme={theme} />

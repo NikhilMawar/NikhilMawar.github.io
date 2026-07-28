@@ -112,7 +112,7 @@ export default function ProjectDetail({ theme = "light" }) {
 
             <span
               className="
-                inline-flex
+                inline-flex 
                 h-[30px] w-[30px]
                 items-center justify-center
                 rounded-full border

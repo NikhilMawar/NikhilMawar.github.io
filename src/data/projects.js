@@ -35,11 +35,29 @@ import kaimoScreen06 from "../assets/images/kaimo/kaimo-screen-06.png";
 
 export const projects = [
   {
+    accentColor: "#F95019",
+
+    workLabel: "Peer-to-Peer Goods Rental App",
+
+    workDescription:
+      "A product design case study focused on trust, browsing, listing flows and rental discovery.",
+
+    workPills: [
+      "Product Design",
+      "Marketplace",
+      "Mobile App",
+    ],
+
+
+
+
+
     slug: "arorent",
     title: "AroRent",
     eyebrow: "Case Study",
     subtitle:
       "A peer-to-peer rental platform that makes access smarter, more affordable and more trustworthy.",
+      
     description:
       "AroRent connects people who need products with people who own them. The platform helps users rent or list items locally with confidence — saving money, earning passive income and reducing unnecessary purchases.",
     heroPhones: {
@@ -113,6 +131,21 @@ export const projects = [
     /*Zeta*/
 
     {
+
+      accentColor: "#244F9D",
+
+      workLabel: "Self-Drive Car Rental Platform",
+
+      workDescription:
+        "A mobility experience focused on flexible booking, clear pricing and frictionless verification.",
+
+      workPills: [
+        "UX Research",
+        "Mobility",
+        "UI Design",
+      ],
+
+
       slug: "zeta",
 
       title: "Zeta",
@@ -219,6 +252,23 @@ export const projects = [
     },
 
     {
+
+      accentColor: "#348d78",
+
+      workLabel: "AI Learning Ecosystem",
+
+      workDescription:
+        "An AI-powered education platform combining tutoring, social learning and gamified progress.",
+
+      workPills: [
+        "Product Design",
+        "AI Experience",
+        "EdTech",
+      ],
+
+
+
+
       slug: "kaimo",
 
       title: "Kaimo",
