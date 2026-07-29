@@ -70,9 +70,9 @@ export default function MobileAbout({
                         mx-auto
                         w-full
                         max-w-[640px]
-                        px-6
-                        pt-20
-                        pb-24
+                        px-[24px]
+                        pt-[20px]
+                        pb-[96px]
                     "
                 >
 

@@ -1,6 +1,7 @@
 import Logo from "../../assets/svg/logo.svg?react";
 import ThemeToggle from "../hero/ThemeToggle";
 import { themeColors } from "../../utils/theme";
+import { translateAxis } from "framer-motion";
 
 
 
@@ -22,7 +23,7 @@ const colors = themeColors[theme];
 
         <div className="mobile-topbar__content">
 
-        <Logo className="mobile-topbar__logo" />
+        <Logo className="mobile-topbar__logo "/>
 
         <ThemeToggle
             mobile

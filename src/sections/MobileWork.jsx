@@ -1,7 +1,6 @@
 import { themeColors } from "../utils/theme";
 import { projects } from "../data/projects";
 import MobileProjectCard from "../components/work/MobileProjectCard";
-import Reveal from "../components/common/Reveal";
 import SectionReveal from "../components/common/SectionReveal";
 
 export default function MobileWork({
@@ -27,14 +26,13 @@ export default function MobileWork({
           w-full
           max-w-[640px]
           px-[24px]
-          pt-[20px]
+          pt-[80px]
           pb-[96px]
         "
       >
         <SectionReveal blur={2}>
         {/* Header */}
 
-        <Reveal delay={0.6} start={startAnimation}>
         <p
           className="
             text-[12px]
@@ -67,13 +65,8 @@ export default function MobileWork({
             backgroundColor: colors.tertiary,
           }}
         />
-        </Reveal>
 
         {/* Cards */}
-        <Reveal
-            delay={1}
-            start={startAnimation}
-        >
         <div className="mt-[32px] space-y-[28px]">
           {projects.map((project) => (
             <MobileProjectCard
@@ -83,7 +76,6 @@ export default function MobileWork({
             />
           ))}
         </div>
-        </Reveal>
         </SectionReveal>
       </div>
     </section>

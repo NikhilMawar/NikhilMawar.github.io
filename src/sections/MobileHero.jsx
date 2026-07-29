@@ -16,7 +16,7 @@ export default function MobileHero({
     <section
       className="
         relative
-        min-h-[100dvh]
+        min-h-[90vh]
         overflow-hidden
         transition-colors
         duration-700
@@ -30,7 +30,7 @@ export default function MobileHero({
         className="
           mx-auto
           flex
-          min-h-[100dvh]
+          min-h-[90vh]
           max-w-[640px]
           flex-col
           px-6
@@ -94,7 +94,7 @@ export default function MobileHero({
           </div>
 
         </div>
-        <div className="absolute inset-x-0 top-[82vh]">
+        <div className="absolute inset-x-0 bottom-[5vh]">
           <HeroTicker theme={theme} />
         </div>
       </div>

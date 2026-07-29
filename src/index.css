@@ -266,7 +266,10 @@ html[data-theme="dark"] #root {
 
   padding-top: env(safe-area-inset-top);
 
-  padding-inline: var(--mobile-page-padding);
+  /*padding-inline: var(--mobile-page-padding);*/
+
+  padding-left: 2rem;
+  padding-right: 1rem;
 
   display: flex;
   align-items: center;
