@@ -2,14 +2,15 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 //import Hero from "../sections/Hero";
+import DesktopHero from "../sections/DesktopHero";
 import DesktopWork from "../sections/DesktopWork";
-import About from "../sections/About";
+import DesktopAbout from "../sections/DesktopAbout";
 import Process from "../sections/Process";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
 import SectionSnapController from "../components/common/SectionSnapController";
-import DesktopHero from "../sections/DesktopHero";
+
 
 export default function DesktopLayout({
   theme,
@@ -73,7 +74,7 @@ export default function DesktopLayout({
       />
 
       <DesktopWork theme={theme} />
-      <About theme={theme} />
+      <DesktopAbout theme={theme} />
       <Process theme={theme} />
       <Contact theme={theme} />
       <Footer
