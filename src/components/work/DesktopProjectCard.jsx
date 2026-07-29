@@ -49,7 +49,7 @@ export default function DesktopProjectCard({ project, theme = "light", index = 0
         "
       >
         <p
-          className="text-[clamp(12px,0.83vw,16px)] font-normal uppercase leading-none"
+          className="text-[clamp(12px,0.83vw,16px)] font-medium uppercase leading-none"
           style={{ color: project.accentColor }}
         >
           ✦ {project.label}
