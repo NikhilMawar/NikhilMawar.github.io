@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import DesktopHero from "../sections/DesktopHero";
 import DesktopWork from "../sections/DesktopWork";
 import DesktopAbout from "../sections/DesktopAbout";
-import Process from "../sections/Process";
+import DesktopProcess from "../sections/DesktopProcess";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
@@ -75,7 +75,7 @@ export default function DesktopLayout({
 
       <DesktopWork theme={theme} />
       <DesktopAbout theme={theme} />
-      <Process theme={theme} />
+      <DesktopProcess theme={theme} />
       <Contact theme={theme} />
       <Footer
         theme={theme}

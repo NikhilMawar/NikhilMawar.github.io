@@ -1,16 +1,35 @@
 import portrait from "../../assets/images/process-portrait.webp";
 
-export default function ProcessPhoto({ theme = "light" }) {
+export default function ProcessPhoto({
+      theme = "light",
+      mobile = false,
+  }) {
   const panelBg = theme === "dark" ? "#1A1A1A" : "#E3DFDA";
 
   return (
     <div
-      className="
-        relative z-[10]
-        h-full w-full overflow-hidden
-        rounded-[clamp(18px,1.6vw,32px)]
-      "
-      style={{ backgroundColor: panelBg }}
+        className={
+            mobile
+                ? `
+                    relative
+                    mt-10
+                    w-full
+                    aspect-[4/3]
+                    overflow-hidden
+                    rounded-[24px]
+                `
+                : `
+                    relative
+                    z-[10]
+                    h-full
+                    w-full
+                    overflow-hidden
+                    rounded-[clamp(18px,1.6vw,32px)]
+                `
+        }
+        style={{
+            backgroundColor: panelBg,
+        }}
     >
       <img
         src={portrait}
