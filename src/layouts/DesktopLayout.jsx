@@ -6,7 +6,7 @@ import DesktopHero from "../sections/DesktopHero";
 import DesktopWork from "../sections/DesktopWork";
 import DesktopAbout from "../sections/DesktopAbout";
 import DesktopProcess from "../sections/DesktopProcess";
-import Contact from "../sections/Contact";
+import DesktopContact from "../sections/DesktopContact";
 import Footer from "../sections/Footer";
 
 import SectionSnapController from "../components/common/SectionSnapController";
@@ -76,7 +76,7 @@ export default function DesktopLayout({
       <DesktopWork theme={theme} />
       <DesktopAbout theme={theme} />
       <DesktopProcess theme={theme} />
-      <Contact theme={theme} />
+      <DesktopContact theme={theme} />
       <Footer
         theme={theme}
         setOverlayOpen={setOverlayOpen}

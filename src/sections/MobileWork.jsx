@@ -50,7 +50,7 @@ export default function MobileWork({
           className="
             mt-[8px]
             font-['Syne']
-            text-[48px]
+            text-[38px]
             font-extrabold
             leading-[0.9]
             tracking-[-0.05em]

@@ -98,7 +98,7 @@ export default function MobileAbout({
                         className="
                             mt-2
                             font-['Syne']
-                            text-[48px]
+                            text-[38px]
                             font-extrabold
                             leading-[0.88]
                             tracking-[-0.06em]

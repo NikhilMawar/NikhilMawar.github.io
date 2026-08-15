@@ -80,19 +80,43 @@ function TickerItem() {
         sm:h-[36px]
         md:h-[clamp(38px,3.1vw,60px)]
         items-center gap-[clamp(28px,3vw,58px)]
-        px-[clamp(28px,3vw,58px)]
+        px-[clamp(14px,1.5vw,29px)]
         font-['Syne']
         text-[10px]
-        sm:text-[11px]
+        sm:text-[10px]
         md:text-[12px]
         font-light uppercase
         tracking-[0.02em]
         whitespace-nowrap
       "
     >
-      <span>UI UX DESIGN</span>
+      <span>CROSS FUNCTIONAL</span>
       <span>✦</span>
-      <span>NIKHIL MAWAR</span>
+      <span>Design Systems</span>
+      <span>✦</span>
+      <span>0→1 Product Work</span>
+      <span>✦</span>
+      <span>Data-informed Design</span>
+      <span>✦</span>
+      <span>Prototyping</span>
+      <span>✦</span>
+      <span>A/B Testing</span>
+      <span>✦</span>
+      <span>Research & Synthesis</span>
+      <span>✦</span>
+      <span>Best Slack Memes</span>
+      <span>✦</span>
+      <span>Stakeholder Alignment</span>
+      <span>✦</span>
+      <span>Design × Engineering</span>
+      <span>✦</span>
+      <span>AI-assisted Workflows</span>
+      <span>✦</span>
+      <span>Product Strategy</span>
+      <span>✦</span>
+      <span>Good Vibes</span>
+      <span>✦</span>
+      <span>Systems Thinking</span>
       <span>✦</span>
     </div>
   );
